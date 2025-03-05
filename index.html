@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Jongu: Unfolding Human Potential Through Secure Attachment and Creative Exploration">
+  <title>Jongu - A Secure Attachment Platform</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #1DB954; /* Brazilian Green */
+      --secondary-color: #FFD700; /* Brazilian Gold/Yellow */
+      --accent-color: #4A90E2; /* Logo Blue */
+      --text-color: #333;
+      --light-text: #fff;
+      --background-color: #F0F4F8;
+      --section-bg: #fff;
+      --border-radius: 8px;
+      --box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      color: var(--text-color);
+      background-color: var(--background-color);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    header {
+      background-color: var(--accent-color);
+      color: var(--light-text);
+      text-align: center;
+      padding: 3rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .logo-container {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .logo {
+      width: 150px;
+      height: auto;
+    }
+
+    header h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+
+    header p {
+      font-size: 1.3rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    section {
+      padding: 5rem 0;
+    }
+
+    .hero {
+      background-color: var(--primary-color);
+      color: var(--light-text);
+      text-align: center;
+    }
+
+    .hero h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+    }
+
+    .hero p {
+      max-width: 800px;
+      margin: 0 auto 2rem;
+      font-size: 1.2rem;
+    }
+
+    .btn-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 24px;
+      text-decoration: none;
+      border-radius: var(--border-radius);
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary {
+      background-color: var(--secondary-color);
+      color: var(--text-color);
+    }
+
+    .btn-secondary {
+      background-color: transparent;
+      color: var(--light-text);
+      border: 2px solid var(--light-text);
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .mission {
+      background-color: var(--section-bg);
+      text-align: center;
+    }
+
+    .mission h2 {
+      font-size: 2.5rem;
+      color: var(--accent-color);
+      margin-bottom: 2rem;
+    }
+
+    .mission-statement {
+      max-width: 800px;
+      margin: 0 auto;
+      font-size: 1.3rem;
+      line-height: 1.8;
+    }
+
+    .mission-statement p {
+      margin-bottom: 1.5rem;
+    }
+
+    .principles {
+      text-align: center;
+    }
+
+    .principles h2 {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      color: var(--primary-color);
+    }
+
+    .principle-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .principle {
+      background-color: var(--section-bg);
+      padding: 2.5rem;
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      text-align: left;
+    }
+
+    .principle h3 {
+      color: var(--accent-color);
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+    }
+
+    .principle p {
+      font-size: 1.1rem;
+    }
+
+    .engagement {
+      background-color: var(--section-bg);
+      text-align: center;
+    }
+
+    .engagement h2 {
+      font-size: 2.5rem;
+      color: var(--primary-color);
+      margin-bottom: 2rem;
+    }
+
+    .engagement-options {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      max-width: 1000px;
+      margin: 0 auto 3rem;
+    }
+
+    .engagement-item {
+      background-color: var(--background-color);
+      padding: 2rem;
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+    }
+
+    .engagement-item h3 {
+      color: var(--accent-color);
+      margin-bottom: 1rem;
+    }
+
+    .engagement-item p {
+      margin-bottom: 1.5rem;
+    }
+
+    .quote {
+      background-color: var(--accent-color);
+      color: var(--light-text);
+      text-align: center;
+      padding: 4rem 0;
+    }
+
+    .quote blockquote {
+      max-width: 800px;
+      margin: 0 auto;
+      font-size: 1.8rem;
+      line-height: 1.5;
+      font-style: italic;
+    }
+
+    footer {
+      background-color: #333;
+      color: var(--light-text);
+      text-align: center;
+      padding: 3rem 0;
+    }
+
+    footer p {
+      margin-bottom: 1rem;
+    }
+
+    footer a {
+      color: var(--secondary-color);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .principle-grid, .engagement-options {
+        grid-template-columns: 1fr;
+      }
+      
+      header h1 {
+        font-size: 2.5rem;
+      }
+      
+      .hero h2, .mission h2, .principles h2, .engagement h2 {
+        font-size: 2rem;
+      }
+      
+      .quote blockquote {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="logo-container">
+        <!-- SVG representation of the logo -->
+        <svg class="logo" viewBox="0 0 500 200" xmlns="http://www.w3.org/2000/svg">
+          <path d="M120,100 Q150,50 180,80 T240,60 Q300,40 350,80 T410,90 Q450,100 480,60" stroke="#fff" stroke-width="4" fill="none"/>
+          <circle cx="120" cy="60" r="15" stroke="#fff" stroke-width="2" fill="none"/>
+          <circle cx="120" cy="60" r="8" stroke="#fff" stroke-width="2" fill="none"/>
+          <path d="M300,80 Q330,95 350,80" stroke="#fff" stroke-width="3" fill="none"/>
+          <path d="M350,80 Q370,65 390,80" stroke="#fff" stroke-width="3" fill="none"/>
+        </svg>
+      </div>
+      <h1>Jongu</h1>
+      <p>A Platform for Secure Attachment and Creative Growth</p>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h2>Join the Journey: Unfolding Human Potential Together</h2>
+      <p>Are you ready to transform how we understand personal growth? Jongu is not just a platform—it's a living, breathing process of collective discovery where creativity heals and vulnerability becomes strength.</p>
+      <div class="btn-container">
+        <a href="#engage" class="btn btn-primary">Collaborate Now</a>
+        
+      </div>
+    </div>
+  </section>
+
+  <section class="mission" id="mission">
+    <div class="container">
+      <h2>Our Mission</h2>
+      <div class="mission-statement">
+        <p>In a world where connections are often fragmented and superficial, <strong>Jongu</strong> exists to create a space where authentic human potential can unfold through secure attachment.</p>
+        <p>We believe that true healing happens at the intersection of creativity and connection. By fostering an environment where personal stories become collective wisdom, we're building more than a platform—we're cultivating a community dedicated to the continuous process of becoming.</p>
+        <p>Grounded in principles of Marriage and Family Therapy, Nonviolent Communication, and creative expression, we're committed to developing tools and experiences that honor the messy, beautiful journey of human growth.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="principles">
+    <div class="container">
+      <h2>Core Principles</h2>
+      <div class="principle-grid">
+        <div class="principle">
+          <h3>Secure Attachment as Foundation</h3>
+          <p>We believe that safe, consistent, and responsive connections create the optimal environment for growth. Our platform is built on creating secure spaces where exploration can happen without fear of judgment or abandonment.</p>
+        </div>
+        <div class="principle">
+          <h3>Process Over Destination</h3>
+          <p>Life isn't about reaching a final state of perfection—it's about embracing the continuous unfolding of experience. Jongu celebrates the journey itself, honoring the beauty in the process of becoming.</p>
+        </div>
+        <div class="principle">
+          <h3>Creativity as Healing</h3>
+          <p>Creative expression provides a unique pathway to understanding and integration. Through collaborative storytelling and reflective practices, we transform personal challenges into opportunities for growth and connection.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="quote">
+    <div class="container">
+      <blockquote>"Creativity is the language of transformation. Secure attachment is the container that makes that transformation possible."</blockquote>
+    </div>
+  </section>
+
+  <section class="engagement" id="engage">
+    <div class="container">
+      <h2>How You Can Participate</h2>
+      <div class="engagement-options">
+        <div class="engagement-item">
+          <h3>Explore Our Platform</h3>
+          <p>We invite you to explore and provide feedback on our vision and strategy for bringing Jongu to life.</p>
+          <a href="https://drive.google.com/file/d/1dFSbYb60PBpz7bXzp7MwsZUbDD5Nr25b/view?usp=drive_link" target="_blank" class="btn btn-primary">View Platform Description</a>
+        </div>
+        <div class="engagement-item">
+          <h3>Help with the Logo</h3>
+          <p>Help shape the visual identity of Jongu by viewing past logo ideas and submitting your own creative concepts.</p>
+          <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+            <a href="https://drive.google.com/file/d/1ZuxZe8UPE-qfB0vCcOc4j7tTPYEp38Vj/view?usp=drive_link" target="_blank" class="btn btn-primary">View Past Logos</a>
+            <a href="https://docs.google.com/document/d/1e8auyhzD86ZQUlF6X6TGISF0lpSaH4xf0Fa_ROagRN4/edit?usp=drive_link" target="_blank" class="btn btn-primary">Submit Ideas</a>
+          </div>
+        </div>
+        <div class="engagement-item">
+          <h3>Co-Create the Manifesto</h3>
+          <p>Contribute to our Secure Attachment AI Platform Manifesto and help define the philosophical foundation and ethical principles around intellectual property and collaboration.</p>
+          <a href="https://docs.google.com/document/d/1dboGbRQh_Olpfo5c7fdojyyeU822aDQcDTt-Aw6zZ-4/edit?usp=drive_link" target="_blank" class="btn btn-primary">Write Together</a>
+        </div>
+        <div class="engagement-item">
+          <h3>Follow Our Journey</h3>
+          <p>Subscribe to our Substack for regular updates, philosophical explorations, and community stories.</p>
+          <a href="https://lifeisprocess.substack.com" target="_blank" class="btn btn-primary">Subscribe on Substack</a>
+        </div>
+      </div>
+      <div id="contact">
+        <h3>Ready for a deeper conversation?</h3>
+        <p>Get in touch to explore how you can contribute to and benefit from the Jongu community by emailing julia@playfulprocess.com</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>Powered by creativity. Committed to connection. Dedicated to becoming.</p>
+      <p>Follow us on <a href="https://lifeisprocess.substack.com" target="_blank">Substack</a></p>
+      <p>Contact: <a href="mailto:julia@playfulprocess.com">julia@playfulprocess.com</a></p>
+      <p>&copy; 2025 Jongu - All Rights Reserved</p>
+    </div>
+  </footer>
+</body>
+</html>
