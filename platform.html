@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jongu Platform: From Humans to Humans</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #1DB954; /* Brazilian Green */
+      --secondary-color: #FFD700; /* Brazilian Gold/Yellow */
+      --accent-color: #4A90E2; /* Logo Blue */
+      --text-color: #333;
+      --light-text: #fff;
+      --background-color: #F0F4F8;
+      --section-bg: #fff;
+      --border-radius: 8px;
+      --box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      --circle-size: 260px;
+      --animation-duration: 20s;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      color: var(--text-color);
+      background-color: var(--background-color);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--accent-color), #3278c9);
+      color: var(--light-text);
+      text-align: center;
+      padding: 3rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .logo-container {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+
+    .logo {
+      width: 150px;
+      height: auto;
+    }
+
+    .circles-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .circle {
+      position: absolute;
+      border-radius: 50%;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      opacity: 0.6;
+      animation: rotate var(--animation-duration) infinite linear;
+    }
+
+    .circle:nth-child(1) {
+      width: var(--circle-size);
+      height: var(--circle-size);
+      top: -50px;
+      left: 10%;
+      border-color: rgba(255, 255, 255, 0.2);
+      animation-duration: calc(var(--animation-duration) * 1.2);
+    }
+
+    .circle:nth-child(2) {
+      width: calc(var(--circle-size) * 1.5);
+      height: calc(var(--circle-size) * 1.5);
+      top: 30%;
+      right: -100px;
+      border-color: rgba(255, 255, 255, 0.15);
+      animation-duration: calc(var(--animation-duration) * 0.8);
+      animation-direction: reverse;
+    }
+
+    .circle:nth-child(3) {
+      width: calc(var(--circle-size) * 0.8);
+      height: calc(var(--circle-size) * 0.8);
+      bottom: -50px;
+      left: 35%;
+      border-color: rgba(255, 215, 0, 0.2);
+      animation-duration: calc(var(--animation-duration) * 1.5);
+    }
+
+    @keyframes rotate {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    header h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+      position: relative;
+      z-index: 1;
+    }
+
+    header p {
+      font-size: 1.3rem;
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .main-nav {
+      background-color: var(--primary-color);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: center;
+      overflow-x: auto;
+    }
+
+    .nav-link {
+      color: var(--light-text);
+      text-decoration: none;
+      padding: 1rem 1.5rem;
+      font-weight: 500;
+      transition: background-color 0.3s;
+      white-space: nowrap;
+    }
+
+    .nav-link:hover {
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-link.active {
+      background-color: rgba(0, 0, 0, 0.2);
+      font-weight: 600;
+    }
+
+    section {
+      padding: 4rem 0;
+    }
+
+    section:nth-child(odd) {
+      background-color: var(--section-bg);
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 3rem;
+      position: relative;
+    }
+
+    .section-title h2 {
+      font-size: 2.5rem;
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title h2::after {
+      content: '';
+      position: absolute;
+      width: 60%;
+      height: 4px;
+      background-color: var(--secondary-color);
+      bottom: -10px;
+      left: 20%;
+      border-radius: 2px;
+    }
+
+    .section-title p {
+      font-size: 1.2rem;
+      max-width: 800px;
+      margin: 0 auto;
+      color: #666;
+    }
+
+    .card {
+      background-color: white;
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    }
+
+    .card h3 {
+      color: var(--accent-color);
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+      border-bottom: 2px solid var(--secondary-color);
+      padding-bottom: 0.5rem;
+      display: inline-block;
+    }
+
+    .card-content {
+      margin-top: 1.5rem;
+    }
+
+    .modules-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .module-card {
+      background-color: white;
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .module-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    .module-header {
+      background-color: var(--accent-color);
+      color: white;
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    .module-content {
+      padding: 1.5rem;
+      flex-grow: 1;
+    }
+
+    .module-content ul {
+      list-style-type: none;
+      margin-top: 1rem;
+    }
+
+    .module-content li {
+      margin-bottom: 0.5rem;
+      position: relative;
+      padding-left: 1.5rem;
+    }
+
+    .module-content li::before {
+      content: '•';
+      color: var(--primary-color);
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+    }
+
+    .principles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .principle-card {
+      background-color: white;
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      padding: 2rem;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .principle-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    }
+
+    .principle-number {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      background-color: var(--primary-color);
+      color: white;
+      border-radius: 50%;
+      line-height: 40px;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+
+    .principle-title {
+      color: var(--accent-color);
+      margin-bottom: 1rem;
+      font-size: 1.3rem;
+    }
+
+    .journey-container {
+      margin-top: 3rem;
+    }
+
+    .journey {
+      margin-bottom: 4rem;
+    }
+
+    .journey-title {
+      font-size: 1.8rem;
+      color: var(--accent-color);
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .journey-steps {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .journey-steps::before {
+      content: '';
+      position: absolute;
+      width: 2px;
+      background-color: var(--primary-color);
+      top: 0;
+      bottom: 0;
+      left: 20px;
+    }
+
+    .journey-step {
+      position: relative;
+      margin-bottom: 1.5rem;
+      padding-left: 60px;
+    }
+
+    .step-number {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: var(--primary-color);
+      color: white;
+      text-align: center;
+      line-height: 40px;
+      font-weight: bold;
+      left: 0;
+      z-index: 1;
+    }
+
+    .step-content {
+      background-color: white;
+      padding: 1.5rem;
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+    }
+
+    .technical-section {
+      margin-top: 4rem;
+    }
+
+    .table-container {
+      overflow-x: auto;
+      margin-top: 2rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: white;
+      box-shadow: var(--box-shadow);
+      border-radius: var(--border-radius);
+      overflow: hidden;
+    }
+
+    th, td {
+      padding: 1rem;
+      text-align: left;
+      border-bottom: 1px solid #eee;
+    }
+
+    th {
+      background-color: var(--accent-color);
+      color: white;
+      font-weight: 600;
+    }
+
+    tr:hover {
+      background-color: #f9f9f9;
+    }
+
+    .cta-section {
+      text-align: center;
+      background: linear-gradient(135deg, var(--primary-color), #19a347);
+      color: white;
+      padding: 5rem 0;
+    }
+
+    .cta-title {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .cta-text {
+      font-size: 1.2rem;
+      max-width: 800px;
+      margin: 0 auto 2rem;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background-color: var(--secondary-color);
+      color: var(--text-color);
+      padding: 1rem 2.5rem;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .cta-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    footer {
+      background-color: #333;
+      color: var(--light-text);
+      text-align: center;
+      padding: 3rem 0;
+    }
+
+    footer p {
+      margin-bottom: 1rem;
+    }
+
+    footer a {
+      color: var(--secondary-color);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    .back-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: var(--primary-color);
+      color: white;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s, visibility 0.3s;
+      z-index: 1000;
+    }
+
+    .back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .back-to-top:hover {
+      background-color: #19a347;
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2.5rem;
+      }
+
+      .modules-grid, .principles-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .journey-steps::before {
+        left: 15px;
+      }
+
+      .journey-step {
+        padding-left: 50px;
+      }
+
+      .step-number {
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="circles-container">
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+    </div>
+    <div class="container">
+      <div class="logo-container">
+        <svg class="logo" viewBox="0 0 500 200" xmlns="http://www.w3.org/2000/svg">
+          <path d="M120,100 Q150,50 180,80 T240,60 Q300,40 350,80 T410,90 Q450,100 480,60" stroke="#fff" stroke-width="4" fill="none"/>
+          <circle cx="120" cy="60" r="15" stroke="#fff" stroke-width="2" fill="none"/>
+          <circle cx="120" cy="60" r="8" stroke="#fff" stroke-width="2" fill="none"/>
+          <path d="M300,80 Q330,95 350,80" stroke="#fff" stroke-width="3" fill="none"/>
+          <path d="M350,80 Q370,65 390,80" stroke="#fff" stroke-width="3" fill="none"/>
+        </svg>
+      </div>
+      <h1>Jongu Platform</h1>
+      <p>From Humans to Humans: Unfolding Human Potential Through Secure Attachment and Creative Exploration</p>
+    </div>
+  </header>
+
+  <nav class="main-nav">
+    <div class="nav-container">
+      <a href="#overview" class="nav-link active">Overview</a>
+      <a href="#modules" class="nav-link">Core Modules</a>
+      <a href="#principles" class="nav-link">Core Principles</a>
+      <a href="#journeys" class="nav-link">User Journeys</a>
+      <a href="#technical" class="nav-link">Technical</a>
+      <a href="#monetization" class="nav-link">Monetization</a>
+      <a href="#examples" class="nav-link">Wireframes</a>
+    </div>
+  </nav>
+
+  <section id="overview">
+    <div class="container">
+      <div class="section-title">
+        <h2>Platform Overview</h2>
+        <p>A comprehensive vision for secure attachment, growth, and connection</p>
+      </div>
+
+      <div class="card">
+        <h3>The Journey of Jongu</h3>
+        <div class="card-content">
+          <p>In the land of the blind, the one-eyed person is king. But what if instead of kings, we sought companions? What if the journey toward vision was one we undertook together, each offering our unique perspective to illuminate the path?</p>
+          <p>Jongu exists as a space where authentic human potential can unfold through secure attachment. Built on principles from Marriage and Family Therapy, Nonviolent Communication, and creative expression, we're cultivating a community dedicated to the continuous process of becoming.</p>
+          <p>Inspired by Jongo, a circular dance and musical tradition brought to Brazil by enslaved Africans, Jongu creates a dynamic interplay between personal expression and community response. The circle maintains the rhythm and energy, while individuals contribute their unique movements and interpretations.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="modules">
+    <div class="container">
+      <div class="section-title">
+        <h2>Core Modules</h2>
+        <p>The building blocks of the Jongu experience</p>
+      </div>
+
+      <div class="modules-grid">
+        <div class="module-card">
+          <div class="module-header">
+            <h3>1. Jongu Cards</h3>
+          </div>
+          <div class="module-content">
+            <p>Interactive card experiences for relationship exploration and growth.</p>
+            <ul>
+              <li>Multiple play formats: random draw, sequential dialogue, geometric spreads</li>
+              <li>Pre-designed decks across categories including relationship-focused, tarot, trivia and values exploration</li>
+              <li>Session recording for later reflection</li>
+              <li>Asynchronous and synchronous play options</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="module-card">
+          <div class="module-header">
+            <h3>2. Jongu Writing</h3>
+          </div>
+          <div class="module-content">
+            <p>Collaborative storytelling and reflective writing tools.</p>
+            <ul>
+              <li>Evidence-based journaling prompts</li>
+              <li>Creative writing frameworks</li>
+              <li>Flexible sharing options (private, couple, selective)</li>
+              <li>AI-powered assistance (grammar, suggestions, expansion)</li>
+              <li>Publishing and scheduling options</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="module-card">
+          <div class="module-header">
+            <h3>3. Jongu Learning</h3>
+          </div>
+          <div class="module-content">
+            <p>Step-by-step psychoeducational experiences with interactive elements.</p>
+            <ul>
+              <li>Modular learning pathways on relationship topics</li>
+              <li>Interactive elements including reflection prompts and image/video creation</li>
+              <li>Real-world application projects</li>
+              <li>Progress tracking and achievement system</li>
+              <li>Resource library with supplementary materials</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="module-card">
+          <div class="module-header">
+            <h3>4. Jongu Creator</h3>
+          </div>
+          <div class="module-content">
+            <p>Tools for creating custom content across the platform.</p>
+            <ul>
+              <li>Creation tools for custom cards, writing templates, and learning modules</li>
+              <li>AI assistance for content generation</li>
+              <li>Templates and frameworks to simplify creation</li>
+              <li>Publishing options to share with community</li>
+              <li>Analytics on created content usage</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="module-card">
+          <div class="module-header">
+            <h3>5. Jongu Humans</h3>
+          </div>
+          <div class="module-content">
+            <p>User and professional directory with community features.</p>
+            <ul>
+              <li>Badge system based on platform engagement and certifications</li>
+              <li>Professional profiles with services and expertise</li>
+              <li>Resource sharing and following capabilities</li>
+              <li>Community forums and discussions</li>
+              <li>Matching system for mentorship and collaboration</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="principles">
+    <div class="container">
+      <div class="section-title">
+        <h2>Core Principles</h2>
+        <p>The philosophical foundation of Jongu</p>
+      </div>
+
+      <div class="principles-grid">
+        <div class="principle-card">
+          <div class="principle-number">1</div>
+          <h4 class="principle-title">Joy is the Fuel</h4>
+          <p>Growth flourishes through playful engagement. We believe that learning and development happen most naturally when wrapped in joy and play.</p>
+        </div>
+
+        <div class="principle-card">
+          <div class="principle-number">2</div>
+          <h4 class="principle-title">Community is the Playfield</h4>
+          <p>Building connections through shared discovery. The collective wisdom of a supportive community enhances individual growth and learning.</p>
+        </div>
+
+        <div class="principle-card">
+          <div class="principle-number">3</div>
+          <h4 class="principle-title">Everyone is Equal</h4>
+          <p>Users start as "humans" and earn badges through interaction. We believe in an egalitarian approach where credibility is built through contribution.</p>
+        </div>
+
+        <div class="principle-card">
+          <div class="principle-number">4</div>
+          <h4 class="principle-title">Secure Attachment in a Safe Space</h4>
+          <p>Environment for personal and family growth. We create digital spaces that strengthen attachment security rather than weaken it.</p>
+        </div>
+
+        <div class="principle-card">
+          <div class="principle-number">5</div>
+          <h4 class="principle-title">Evidence-Informed Play</h4>
+          <p>Research-backed exercises enhanced by AI insights. We combine scientific understanding with technological innovation to create effective experiences.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="journeys">
+    <div class="container">
+      <div class="section-title">
+        <h2>User Journeys</h2>
+        <p>How people experience and grow with Jongu</p>
+      </div>
+
+      <div class="journey-container">
+        <div class="journey">
+          <h3 class="journey-title">Creator Journey</h3>
+          <div class="journey-steps">
+            <div class="journey-step">
+              <div class="step-number">1</div>
+              <div class="step-content">
+                <p>User selects content type to create</p>
+              </div>
+            </div>
+            <div class="journey-step">
+              <div class="step-number">2</div>
+              <div class="step-content">
+                <p>Platform provides appropriate templates and frameworks</p>
+              </div>
+            </div>
+            <div class="journey-step">
+              <div class="step-number">3</div>
+              <div class="step-content">
+                <p>AI assists with content development</p>
+              </div>
+            </div>
+            <div class="journey-step">
+              <div class="step-number">4</div>
+              <div class="step-content">
+                <p>Creator adds personal touches and customization</p>
+              </div>
+            </div>
+            <div class="journey-step">
+              <div class="step-number">5</div>
+              <div class="step-content">
+                <p>Content undergoes light review/moderation</p>
+              </div>
+            </div>
+            <div class="journey-step">
+              <div class="step-number">6</div>
+              <div class="step-content">
+                <p>Creator publishes to personal library or community</p>
+              </div>
+            </div>
+            <div class="journey-step">
+              <div class="step-number">7</div>
+              <div class="step-content">
+                <p>Analytics provide feedback on content usage</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="journey">
+          <h3 class="journey-title">Learner Journey</h3>
+          <div class="journey-steps">
+            <div class="journey-step">
+              <div class="step-number">1</div>
+              <div class="step-content">
+                <p>User browses learning modules or receives recommendations</p>
+              </div>
+            </div>
+            <div class="journey-step">
+              <div class="step-number">2</div>
+              <div class="step-content">
+                <p>Selects module and views roadmap of content</p>
+              </div>
+            </div>
+            <div class="journey-step">
+              <div class="step-number">3</div>
+              <div class="step-content">
+                <p>Progresses through content with interactive elements (reading core material, engaging with AI for reflections, generating visual content, completing exercises)</p>
+              </div>
+            </div>
+            <div class="journey-step">
+              <div class="step-number">4</div>
+              <div class="step-content">
+                <p>Completes practical application projects</p>
+              </div>
+            </div>
+            <div class="journey-step">
+              <div class="step-number">5</div>
+              <div class="step-content">
+                <p>Receives certificate or badge upon completion</p>
+              </div>
+            </div>
+            <div class="journey-step">
+              <div class="step-number">6</div>
+              <div class="step-content">
+                <p>Option to share learnings or creations with community</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="technical" class="technical-section">
+    <div class="container">
+      <div class="section-title">
+        <h2>Technical Requirements</h2>
+        <p>The foundation that supports Jongu's vision</p>
+      </div>
+
+      <div class="card">
+        <h3>Platform Architecture</h3>
+        <div class="card-content">
+          <ul>
+            <li><strong>Frontend:</strong> Next.js + React for responsive experiences</li>
+            <li><strong>Backend:</strong> Firebase/Supabase for real-time data synchronization</li>
+            <li><strong>AI Integration:</strong> OpenAI API for relationship insights</li>
+            <li><strong>Security:</strong> End-to-end encryption for sensitive data and privacy controls</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Integration Points</h3>
+        <div class="card-content">
+          <ul>
+            <li>Single user identity across all modules</li>
+            <li>Consistent AI assistance throughout platform</li>
+            <li>Shared content library accessible to all modules</li>
+            <li>Unified analytics and progress tracking</li>
+            <li>Cross-module recommendations</li>
+            <li>Community features across the whole platform</li>
+            <li>Reviews across the whole platform</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="monetization">
+    <div class="container">
+      <div class="section-title">
+        <h2>Monetization Options</h2>
+        <p>Sustainable growth models for Jongu</p>
+      </div>
+
+      <div class="card">
+        <h3>Simple Pay-As-You-Go Model</h3>
+        <div class="card-content">
+          <ul>
+            <li>Credit system for transparent tracking and payment</li>
+            <li>Users purchase credits in advance</li>
+            <li>Features consume credits based on underlying costs</li>
+            <li>Automatic notifications when credits run low</li>
+            <li>Users start with free trial credits</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>Credits</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>AI coaching/guidance</td>
+              <td>5 credits</td>
+              <td>Per interaction</td>
+            </tr>
+            <tr>
+              <td>Writing assistance</td>
+              <td>3 credits</td>
+              <td>Per use</td>
+            </tr>
+            <tr>
+              <td>Card deck generation</td>
+              <td>10 credits</td>
+              <td>Per deck</td>
+            </tr>
+            <tr>
+              <td>Session recordings</td>
+              <td>2 credits</td>
+              <td>Per minute</td>
