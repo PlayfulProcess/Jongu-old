@@ -1,6 +1,6 @@
 # Jongu: Empowering Relationships Through AI and Interactive Cards
 
-**Jongu** is an innovative AI-driven platform designed to revolutionize relationship coaching and personal growth. At its core, Jongu leverages **interactive card-based experiences** to provide users with engaging, evidence-informed tools for self-discovery, learning, and collaboration.
+**Jongu** is an innovative AI-driven platform designed to revolutionize relationship coaching and personal growth. At its core, Jongu leverages **interactive card-based experiences** to provide users with engaging, evidence-informed tools for self-discovery, learning, and collaboration. Further down the road, we are already thinking about deploying new features, such as Jongu Writing and Jongu Learning, for journalling, creative writing and guided learning experiences.
 
 By focusing on features like **Card Creation**, **Spread Design**, and a **Personal AI Assistant**, Jongu creates a playful, community-centered environment that facilitates exploration and connection. Built on a scalable and secure AWS-based infrastructure, Jongu aims to empower individuals and creators to transform their approach to personal development.
 
