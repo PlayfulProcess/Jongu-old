@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kids Books - Jongu</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #1DB954;
+      --secondary-color: #FFD700;
+      --accent-color: #4A90E2;
+      --text-color: #333;
+      --light-text: #fff;
+      --background-color: #F0F4F8;
+      --section-bg: #fff;
+      --border-radius: 8px;
+      --box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      color: var(--text-color);
+      background-color: var(--background-color);
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    header {
+      background-color: var(--accent-color);
+      color: var(--light-text);
+      padding: 2rem 0;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .book-gallery {
+      padding: 3rem 0;
+      text-align: center;
+    }
+    .book-gallery h2 {
+      font-size: 2rem;
+      color: var(--primary-color);
+      margin-bottom: 2rem;
+    }
+    .book-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      justify-content: center;
+    }
+    .book-item {
+      background-color: var(--section-bg);
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      padding: 1.5rem;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .book-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.12);
+    }
+    .book-item img.thumbnail { /* Added thumbnail class for potential future use */
+      max-width: 100%;
+      height: auto;
+      border-radius: var(--border-radius);
+      margin-bottom: 1rem;
+      border: 1px solid #eee;
+    }
+    .book-item h3 {
+      color: var(--accent-color);
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .book-item p {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: var(--border-radius);
+      font-weight: 600;
+      background-color: var(--secondary-color);
+      color: var(--text-color);
+      transition: background-color 0.3s ease;
+    }
+    .btn:hover {
+      background-color: #e6c300; /* Darker shade of secondary */
+    }
+    footer {
+      background-color: #333;
+      color: var(--light-text);
+      text-align: center;
+      padding: 2rem 0;
+      margin-top: 3rem;
+    }
+    footer a {
+        color: var(--secondary-color);
+        text-decoration: none;
+    }
+    footer a:hover {
+        text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <h1>Our Kids Books Collection</h1>
+      <p>Discover stories that spark imagination and joy.</p>
+      <p style="font-size: 0.9em; margin-top: 10px; color: var(--text-color); background-color: var(--section-bg); padding: 10px; border-radius: 5px;">
+        <em>It's not about utility and final products, but about giving expression to what is alive inside me. My hope is to find other people who can engage with the content or the process of creating it. Many of these creative works are joyfully in process. I warmly welcome collaborators interested in developing these materials further, whether as illustrated stories, animated videos, or other creative expressions. This is part of an ongoing exploration, much like the journey I'm sharing on my <a href="https://www.youtube.com/@lifeisprocess_processislife" target="_blank" style="color: var(--primary-color);">YouTube channel</a> and <a href="https://lifeisprocess.substack.com" target="_blank" style="color: var(--primary-color);">Substack</a>.</em>
+      </p>
+    </div>
+  </header>
+
+  <section class="book-gallery">
+    <div class="container">
+      <h2>Available Books & Ideas</h2>
+      <div class="book-list">
+        <div class="book-item">
+          <!-- You can add a thumbnail image here if you have one for Bunny -->
+          <!-- <img src="path/to/bunny_thumbnail.jpg" alt="Bunny Book Thumbnail" class="thumbnail"> -->
+          <h3>Bunny</h3>
+          <p>A delightful story. Click to read!</p>
+          <a href="kids_books/bunny/story.html" class="btn">Read Bunny</a>
+        </div>
+        <div class="book-item">
+          <h3>Shiryo and the Little Kitten: A Lesson in Learning</h3>
+          <p>An idea waiting to blossom! Explore the initial concept and a video inspired by it.</p>
+          <div style="margin-top: 10px; display: flex; flex-direction: column; gap: 10px;">
+            <a href="https://drive.google.com/file/d/1qJWMBVdn4xLeX2p4UmrnrncLHRNAPAMn/view" target="_blank" class="btn">View Story Concept</a>
+            <a href="https://www.youtube.com/watch?v=4Nz6Lv65n0s" target="_blank" class="btn">Watch YouTube Video</a>
+          </div>
+        </div>
+        <!-- Add more .book-item divs here for future books -->
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p><a href="index.html">Back to Home</a></p>
+      <p>&copy; Jongu. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html> 
