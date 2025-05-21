@@ -9,7 +9,7 @@ By focusing on features like **Card Creation**, **Spread Design**, and a **Perso
 ## Why Jongu?
 
 - **Interactive Tools for Growth**: Create and explore card decks tailored for relationships, self-discovery, or even trivia.
-- **AI as Your Co-Creator**: Jongu’s AI assists in designing cards, interpreting spreads, and supporting collaboration.
+- **AI as Your Co-Creator**: Jongu's AI assists in designing cards, interpreting spreads, and supporting collaboration.
 - **Community-Centered**: Enable real-time or asynchronous co-creation and shared experiences.
 - **Proven Methodologies**: Grounded in research-backed frameworks like Gottman and Nonviolent Communication (NVC), with room for personalization.
 - **Scalable and Secure**: Powered by AWS for reliability, scalability, and security.
@@ -56,9 +56,23 @@ Jongu is built on a robust foundation:
 
 ## Join Us in Building Jongu!
 
-We’re actively seeking collaborators to bring Jongu to life. Whether you’re a developer, designer, or AI enthusiast, your contributions can help shape the future of this platform. Join us to:
+We're actively seeking collaborators to bring Jongu to life. Whether you're a developer, designer, or AI enthusiast, your contributions can help shape the future of this platform. Join us to:
 - Build intuitive card creation and interpretation tools.
 - Enhance AI capabilities for deeper personalization.
 - Foster a vibrant community for meaningful collaboration.
 
-**Ready to collaborate?** Fork the repository, submit pull requests, or open issues with your ideas. Let’s create something amazing together!
+**Ready to collaborate?** Fork the repository, submit pull requests, or open issues with your ideas. Let's create something amazing together!
+
+---
+
+## Ongoing Explorations
+
+### Interactive Collaborative Kids Books
+
+As part of our journey in creative exploration and learning AWS services, we're developing an interactive collaborative platform for kids' books. This project allows users to:
+
+- Rearrange book pages with drag-and-drop functionality
+- Upload new pages to existing stories
+- Collaborate on story creation and modification
+
+This initiative serves as both a creative outlet and a technical learning experience. [Learn more about this exploration](kids_books/README.md).

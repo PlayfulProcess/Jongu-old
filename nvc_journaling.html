@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NVC AI-Powered Journaling Exercise</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #F0F4F8;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 700px;
+      margin: 40px auto;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+      padding: 2.5rem 2rem;
+    }
+    h1 {
+      color: #1DB954;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    .intro {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: #4A90E2;
+    }
+    .chat-box {
+      border: 1px solid #eee;
+      border-radius: 8px;
+      padding: 1.5rem;
+      background: #F8FBFF;
+      min-height: 200px;
+      margin-bottom: 1.5rem;
+      max-height: 350px;
+      overflow-y: auto;
+    }
+    .message {
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: flex-start;
+    }
+    .message.ai {
+      color: #1DB954;
+    }
+    .message.user {
+      color: #333;
+      justify-content: flex-end;
+    }
+    .message .bubble {
+      padding: 0.8rem 1.2rem;
+      border-radius: 18px;
+      background: #e6f7ec;
+      max-width: 80%;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+    .message.user .bubble {
+      background: #f0f0f0;
+      margin-left: auto;
+    }
+    .message.ai .bubble {
+      background: #e6f7ec;
+      margin-right: auto;
+    }
+    .input-row {
+      display: flex;
+      gap: 10px;
+    }
+    .input-row input, .input-row textarea {
+      flex: 1;
+      padding: 0.8rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+    .input-row button {
+      background: #1DB954;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 0 1.5rem;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .input-row button:hover {
+      background: #168f3e;
+    }
+    .back-link {
+      display: block;
+      margin: 1.5rem 0 0 0;
+      text-align: center;
+      color: #4A90E2;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .back-link:hover {
+      text-decoration: underline;
+    }
+    @media (max-width: 600px) {
+      .container {
+        padding: 1rem 0.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>NVC Journaling Exercise</h1>
+    <div class="intro">
+      <p>Engage in a Nonviolent Communication (NVC) self-connection exercise, guided by an AI assistant. This journaling prompt is inspired by <a href="https://www.nycnvc.org/the-exercise" target="_blank">NYC NVC's self-empathy process</a>. Your responses are private and can help you gain clarity and compassion for yourself.</p>
+    </div>
+    <div class="chat-box" id="chatBox">
+      <div class="message ai"><div class="bubble">Welcome! Let's begin your NVC journaling. What situation or feeling would you like to explore today?</div></div>
+    </div>
+    <form id="chatForm" autocomplete="off">
+      <div class="input-row">
+        <textarea id="userInput" rows="2" placeholder="Type your response..." required></textarea>
+        <button type="submit">Send</button>
+      </div>
+    </form>
+    <a href="index.html" class="back-link">&larr; Back to Home</a>
+  </div>
+  <script>
+    const chatBox = document.getElementById('chatBox');
+    const chatForm = document.getElementById('chatForm');
+    const userInput = document.getElementById('userInput');
+
+    // Simple state machine for NVC steps
+    const nvcSteps = [
+      {
+        prompt: "Thank you for sharing. Can you describe what happened, just the facts, without judgments or interpretations?",
+        key: "observation"
+      },
+      {
+        prompt: "How do you feel about this situation? (Try to name the feeling, e.g., sad, frustrated, relieved, etc.)",
+        key: "feeling"
+      },
+      {
+        prompt: "What needs of yours are connected to these feelings? (e.g., need for respect, understanding, safety, etc.)",
+        key: "need"
+      },
+      {
+        prompt: "Would you like to make a request of yourself or someone else? (If so, what is it?)",
+        key: "request"
+      },
+      {
+        prompt: "Thank you for completing the exercise. Take a moment to notice how you feel now. If you'd like, you can start again or reflect further below.",
+        key: "end"
+      }
+    ];
+    let step = 0;
+
+    chatForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const text = userInput.value.trim();
+      if (!text) return;
+      addMessage('user', text);
+      userInput.value = '';
+      setTimeout(() => {
+        if (step < nvcSteps.length) {
+          addMessage('ai', nvcSteps[step].prompt);
+          step++;
+        }
+      }, 500);
+    });
+
+    function addMessage(sender, text) {
+      const msgDiv = document.createElement('div');
+      msgDiv.className = 'message ' + sender;
+      const bubble = document.createElement('div');
+      bubble.className = 'bubble';
+      bubble.textContent = text;
+      msgDiv.appendChild(bubble);
+      chatBox.appendChild(msgDiv);
+      chatBox.scrollTop = chatBox.scrollHeight;
+    }
+  </script>
+</body>
+</html>
