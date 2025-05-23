@@ -14,10 +14,9 @@
       padding: 0;
     }
     .container {
-      max-width: none;
-      background: none;
-      box-shadow: none;
-      padding: 0;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem;
     }
     h1 {
       color: #1DB954;
@@ -29,62 +28,77 @@
       margin-bottom: 2rem;
       color: #4A90E2;
     }
+    .nvc-flex-main {
+      display: flex;
+      gap: 2rem;
+      align-items: flex-start;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .nvc-card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+      padding: 2rem 1.5rem 1.2rem 1.5rem;
+      margin-bottom: 1.5rem;
+      width: 100%;
+      max-width: 420px;
+      min-width: 320px;
+    }
     .chat-box {
       border: 1px solid #eee;
       border-radius: 8px;
-      padding: 1.5rem;
+      padding: 1rem;
       background: #F8FBFF;
-      min-height: 200px;
-      margin-bottom: 1.5rem;
-      max-height: 350px;
+      min-height: 160px;
+      max-height: 330px;
       overflow-y: auto;
-      color: #111 !important;
+      margin-bottom: 1rem;
+      color: #111;
+      font-size: 1.03em;
+      transition: background 0.2s;
     }
     .message {
-      margin-bottom: 1.2rem;
+      margin-bottom: 1.1rem;
       display: flex;
       align-items: flex-start;
     }
-    .message.ai {
-      color: #1DB954;
-    }
-    .message.user {
-      color: #333;
-      justify-content: flex-end;
-    }
-    .message .bubble {
-      padding: 0.8rem 1.2rem;
-      border-radius: 18px;
+    .message.ai .bubble {
       background: #e6f7ec;
-      max-width: 80%;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-      color: #111 !important;
+      color: #1DB954;
+      margin-right: auto;
     }
     .message.user .bubble {
       background: #f0f0f0;
+      color: #333;
       margin-left: auto;
     }
-    .message.ai .bubble {
-      background: #e6f7ec;
-      margin-right: auto;
+    .bubble {
+      padding: 0.75rem 1.1rem;
+      border-radius: 18px;
+      max-width: 80%;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      word-break: break-word;
     }
     .input-row {
       display: flex;
       gap: 10px;
+      margin-bottom: 0.2rem;
     }
-    .input-row input, .input-row textarea {
+    .input-row textarea {
       flex: 1;
       padding: 0.8rem;
       border-radius: 8px;
       border: 1px solid #ccc;
       font-size: 1rem;
+      resize: none;
     }
     .input-row button {
       background: #FFD600;
       color: #222;
       border: none;
       border-radius: 8px;
-      padding: 0 1.5rem;
+      padding: 0 1.3rem;
       font-size: 1rem;
       font-weight: 600;
       cursor: pointer;
@@ -93,86 +107,28 @@
     }
     .input-row button:hover {
       background: #ffe066;
-      color: #222;
-    }
-    .back-link {
-      display: block;
-      margin: 1.5rem 0 0 0;
-      text-align: center;
-      color: #4A90E2;
-      text-decoration: none;
-      font-weight: 500;
-    }
-    .back-link:hover {
-      text-decoration: underline;
-    }
-    @media (max-width: 600px) {
-      .container {
-        padding: 0.5rem 0.2rem;
-      }
-    }
-    #tChartSection .t-highlight {
-      background: #e6f7ec;
-      border-radius: 6px;
-      box-shadow: 0 0 0 2px #1DB95433;
-      transition: background 0.3s, box-shadow 0.3s;
-    }
-    .nvc-flex-main {
-      display: flex;
-      gap: 2.5rem;
-      align-items: flex-start;
-      justify-content: center;
-      width: 100%;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    .nvc-card {
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-      padding: 2.2rem 1.5rem 1.5rem 1.5rem;
-      margin-bottom: 1.5rem;
-      width: 100%;
-    }
-    .nvc-chat-col {
-      flex: 1 1 340px;
-      min-width: 320px;
-      max-width: 420px;
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-    .nvc-synth-col {
-      flex: 1 1 340px;
-      min-width: 320px;
-      max-width: 520px;
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
     }
     .nvc-popup-btn {
       background: #fff;
       color: #222;
-      border: 2.5px solid #bbb;
+      border: 2px solid #bbb;
       border-radius: 10px;
-      padding: 1em 2em;
-      font-size: 1.18em;
+      padding: 0.7em 1.2em;
+      font-size: 1em;
       font-weight: 700;
-      margin: 0 1em 1.5em 0;
+      margin: 0 0.5em 1em 0;
       cursor: pointer;
-      transition: background 0.2s, color 0.2s, border 0.2s, box-shadow 0.2s;
-      box-shadow: 0 4px 18px #1db95422, 0 1.5px 0 #bbb;
+      transition: background 0.2s, color 0.2s, border 0.2s;
+      box-shadow: 0 2px 8px #1db95422;
       outline: none;
     }
     .nvc-popup-btn#openFeelingsBtn {
       color: #1DB954;
       border-color: #1DB954;
-      box-shadow: 0 4px 18px #1db95433, 0 1.5px 0 #1DB954;
     }
     .nvc-popup-btn#openNeedsBtn {
       color: #4A90E2;
       border-color: #4A90E2;
-      box-shadow: 0 4px 18px #4a90e233, 0 1.5px 0 #4A90E2;
     }
     .nvc-popup-btn#openFeelingsBtn:hover {
       background: #1DB954;
@@ -196,12 +152,12 @@
       background: #fff;
       border-radius: 12px;
       box-shadow: 0 4px 24px rgba(0,0,0,0.18);
-      padding: 2.2rem 1.5rem 1.5rem 1.5rem;
+      padding: 1.5rem;
       max-width: 95vw;
       max-height: 90vh;
       overflow-y: auto;
-      min-width: 320px;
-      min-height: 180px;
+      min-width: 280px;
+      min-height: 120px;
       position: relative;
       color: #222;
     }
@@ -209,27 +165,8 @@
       color: #222;
       font-weight: 700;
     }
-    .nvc-modal-content h2.feelings-title {
-      color: #1DB954;
-    }
-    .nvc-modal-content h2.needs-title {
-      color: #4A90E2;
-    }
-    .nvc-modal-content h3 {
-      color: #4A90E2;
-    }
-    .nvc-modal-content h4 {
-      color: #4A90E2;
-      margin: 0.5em 0 0.2em 0;
-      font-size: 1.04em;
-      font-weight: 600;
-    }
-    .nvc-modal-content ul {
-      margin: 0.2em 0 0.7em 1.1em;
-      padding: 0;
-      list-style: disc inside;
-      font-size: 0.98em;
-    }
+    .nvc-modal-content h2.feelings-title { color: #1DB954; }
+    .nvc-modal-content h2.needs-title { color: #4A90E2; }
     .nvc-modal-close {
       position: absolute;
       top: 0.7em;
@@ -242,46 +179,34 @@
       font-weight: bold;
       transition: color 0.2s;
     }
-    .nvc-modal-close:hover {
-      color: #1DB954;
+    .nvc-modal-close:hover { color: #1DB954; }
+    .nvc-tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.3em;
+      margin-bottom: 1em;
+      width: 100%;
     }
-    @media (max-width: 600px) {
-      .nvc-flex-main {
-        flex-direction: column;
-        gap: 1.2rem;
-        max-width: 100vw;
-      }
-      .nvc-chat-col, .nvc-synth-col {
-        max-width: 100%;
-        min-width: 0;
-      }
-      .nvc-card {
-        padding: 1.1rem 0.5rem 1rem 0.5rem;
-      }
-      .nvc-modal-content {
-        padding: 1.1rem 0.5rem 1rem 0.5rem;
-        min-width: 0;
-        max-height: 85vh;
-      }
-    }
-    .nvc-main-tag {
+    .nvc-tag {
       display: inline-block;
-      background: #e6f7ec;
-      color: #1DB954;
+      border: 2px solid #1DB954;
       border-radius: 18px;
-      padding: 0.4em 1.1em;
-      margin: 0.3em 0.4em 0.7em 0;
-      font-weight: 600;
+      padding: 0.3em 1em;
+      margin: 0.1em 0.3em 0.1em 0;
       font-size: 1em;
+      font-weight: 600;
+      background: #f8fbff;
       cursor: pointer;
-      border: 1.5px solid #1DB95433;
-      transition: background 0.2s, color 0.2s;
-      outline: none;
+      position: relative;
+      max-width: 100%;
+      color: #444;
+      border-color: #bbb;
+      transition: background 0.2s, color 0.2s, border 0.2s;
     }
-    .nvc-main-tag:focus, .nvc-main-tag:hover {
-      background: #1DB954;
-      color: #fff;
-    }
+    .nvc-tag[style*='#1DB954'] { color: #1DB954 !important; border-color: #1DB954 !important; }
+    .nvc-tag[style*='#E74C3C'] { color: #E74C3C !important; border-color: #E74C3C !important; background: #fff6f6; }
+    .nvc-tag[style*='#4A90E2'] { color: #4A90E2 !important; border-color: #4A90E2 !important; }
     .nvc-tooltip {
       display: none;
       position: absolute;
@@ -292,85 +217,28 @@
       color: #333;
       border-radius: 10px;
       box-shadow: 0 4px 16px rgba(0,0,0,0.13);
-      padding: 0.7em 1.2em;
-      min-width: 200px;
+      padding: 0.7em 1.1em;
+      min-width: 180px;
       z-index: 1001;
       font-size: 0.98em;
-      white-space: normal;
-      border: 1.5px solid #1DB95433;
       text-align: left;
       max-height: 60vh;
       overflow-y: auto;
-      box-sizing: border-box;
+      border: 1.5px solid #1DB95433;
+      white-space: normal;
+      word-break: break-word;
     }
     .nvc-tag:hover .nvc-tooltip, .nvc-tag:focus .nvc-tooltip, .nvc-tag.nvc-tooltip-show .nvc-tooltip {
       display: block;
     }
-    .nvc-tooltip span {
-      display: block;
-      margin: 0.1em 0;
-      word-break: break-word;
-      white-space: normal;
+    #tChartSection {
+      margin-bottom: 1rem;
     }
-    @media (max-width: 600px) {
-      .nvc-tooltip {
-        left: 0;
-        right: 0;
-        transform: none;
-        min-width: 120px;
-        max-width: 90vw;
-        max-height: 40vh;
-      }
-    }
-    /* Center tag rows in modals */
-    .nvc-modal-content .nvc-tag-row {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: flex-start;
-      gap: 0.3em;
-      margin-bottom: 1.1em;
-      width: 100%;
-      word-break: break-word;
-      text-align: center;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .nvc-tag {
-      display: inline-block;
-      border: 2px solid #1DB954;
-      border-radius: 18px;
-      padding: 0.3em 1.1em;
-      margin: 0.18em 0.4em 0.18em 0;
-      font-size: 1em;
-      font-weight: 600;
-      background: #f8fbff;
-      cursor: pointer;
-      position: relative;
-      transition: background 0.2s, color 0.2s, border 0.2s;
-      outline: none;
-      max-width: 100%;
-      word-break: break-word;
-      text-align: center;
-      color: #444;
-      border-color: #bbb;
-    }
-    .nvc-tag[style*='#1DB954'], .nvc-tag[style*='#E67C30'] {
-      color: #1DB954 !important;
-      border-color: #1DB954 !important;
-    }
-    .nvc-tag[style*='#E67C30'] {
-      color: #E74C3C !important;
-      border-color: #E74C3C !important;
-      background: #fff6f6;
-    }
-    .nvc-tag[style*='#4A90E2'] {
-      color: #4A90E2 !important;
-      border-color: #4A90E2 !important;
-    }
-    #tChartSection .t-highlight, #tChartSection .t-highlight:focus {
-      background: #e6f7ec;
+    #tChartSection .t-highlight {
+      background: #e6f7ec !important;
+      border-radius: 6px;
       box-shadow: 0 0 0 2px #1DB95433;
+      transition: background 0.3s, box-shadow 0.3s;
     }
     #tChartSection .t-feelings-label {
       color: #1DB954;
@@ -380,390 +248,306 @@
       color: #4A90E2;
       font-weight: bold;
     }
-    #tChartSection h2 {
-      color: #222 !important;
-      opacity: 1 !important;
-      text-shadow: none !important;
+    @media (max-width: 700px) {
+      .container { padding: 0.5rem 0.2rem; }
+      .nvc-flex-main { flex-direction: column; gap: 1rem; }
+      .nvc-card { min-width: 0; max-width: 100vw; padding: 1rem 0.5rem 1rem 0.5rem;}
     }
-    @media print {
-      body * {
-        visibility: hidden !important;
-      }
-      .container, .container * {
-        visibility: visible !important;
-      }
-      .back-link, .nvc-modal, .nvc-popup-btn, #openFeelingsBtn, #openNeedsBtn, #printPdfBtn, #restartBtn {
-        display: none !important;
-      }
-      .container {
-        box-shadow: none !important;
-        background: #fff !important;
-        padding: 0 !important;
-      }
-      .nvc-card {
-        box-shadow: none !important;
-        background: #fff !important;
-        padding: 0 !important;
-      }
-      .nvc-flex-main {
-        flex-direction: column !important;
-        gap: 0 !important;
-        max-width: 100vw !important;
-      }
-      .nvc-chat-col, .nvc-synth-col {
-        max-width: 100% !important;
-        min-width: 0 !important;
-        padding: 0 !important;
-      }
-      #chatForm, .nvc-popup-btn, .nvc-modal, .back-link {
-        display: none !important;
-      }
-      #tChartSection {
-        opacity: 1 !important;
-        pointer-events: auto !important;
-      }
-      .chat-box {
-        max-height: none !important;
-        overflow-y: visible !important;
-        page-break-after: always;
-      }
-      #tChartSection {
-        page-break-before: always;
-      }
+    .back-link {
+      display: block;
+      margin: 1.2rem 0 0 0;
+      text-align: center;
+      color: #4A90E2;
+      text-decoration: none;
+      font-weight: 500;
     }
+    .back-link:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Compassionate Self-Connection: A Journey Through Feelings & Needs</h1>
-    <div class="intro">
-      <p>Compassionate Self-Connection: A Journey Through Feelings & Needs  
-Engage in a Nonviolent Communication (NVC) self-connection exercise. This is a self-guided journaling tool and does not use an AI assistant. This journaling prompt is inspired by <a href="https://www.nycnvc.org/the-exercise" target="_blank">NYC NVC's self-empathy process</a> and incorporates Byron Katie's "The Work" for identifying and questioning thoughts. For a comprehensive list of feelings and needs, you can refer to this NVC Feelings and Needs List or the buttons below. Your responses are private and can help you gain clarity and compassion for yourself. This guided exercise will help you process difficult moments through self-connection and empathy. Each step builds on the previous one, helping you explore your experience and find new possibilities.
-</p>
-    </div>
-    <div class="nvc-flex-main">
-      <div class="nvc-chat-col nvc-card">
-        <div class="chat-box" id="chatBox">
-          <div class="message ai"><div class="bubble" style="color:#111;">Let's begin your NVC journaling. First, take a moment to calm down and be present and let me know when you are ready.<br><br><strong>Tip:</strong> For best results, use the <span style="color:#1DB954;">Feelings List</span> and <span style="color:#4A90E2;">Needs List</span> buttons below the chatbox. Try to use the words from those lists when describing your experience.</div></div>
-        </div>
-        <form id="chatForm" autocomplete="off">
-          <div class="input-row">
-            <textarea id="userInput" rows="2" placeholder="Type your response..." required></textarea>
-            <button type="submit">Send</button>
-          </div>
-        </form>
-        <div style="text-align:center; margin-top:0.7em;">
-          <button class="nvc-popup-btn" id="openFeelingsBtn">Show Feelings List</button>
-          <button class="nvc-popup-btn" id="openNeedsBtn">Show Needs List</button>
-        </div>
+<div class="container">
+  <h1>Compassionate Self-Connection: A Journey Through Feelings & Needs</h1>
+  <div class="intro">
+    <p>
+      Engage in a Nonviolent Communication (NVC) self-connection exercise. This is a self-guided journaling tool (no AI assistant).
+      This journaling prompt is inspired by <a href="https://www.nycnvc.org/the-exercise" target="_blank">NYC NVC's self-empathy process</a> and Byron Katie's "The Work" for questioning thoughts.<br>
+      <strong>Tip:</strong> Use the <span style="color:#1DB954;">Feelings List</span> and <span style="color:#4A90E2;">Needs List</span> buttons. Your responses are private and can help you gain clarity and compassion for yourself.
+    </p>
+  </div>
+  <div class="nvc-flex-main">
+    <div class="nvc-card">
+      <div class="chat-box" id="chatBox" aria-live="polite">
+        <div class="message ai"><div class="bubble">Let's begin your NVC journaling.<br><br>
+          Take a moment to calm down and let me know when you are ready.<br><br>
+          <strong>Tip:</strong> For best results, use the <span style="color:#1DB954;">Feelings List</span> and <span style="color:#4A90E2;">Needs List</span> buttons below.
+        </div></div>
       </div>
-      <div class="nvc-synth-col nvc-card">
-        <div id="tChartSection" style="transition:opacity 0.4s;">
-          <h2 style="color:#222; text-align:center;">Your NVC Reflection (T-Chart)</h2>
-          <div style="display:flex; justify-content:center; margin-bottom:1.5rem;">
-            <div style="width:340px; border:2px solid #aaa; border-radius:10px; background:#fafbfc; padding:1.5rem;">
-              <div style="display:flex; border-bottom:2px solid #aaa;">
-                <div style="flex:1; text-align:center; font-weight:bold;" class="t-feelings-label">F (Feelings)</div>
-                <div style="flex:1; text-align:center; font-weight:bold;" class="t-needs-label">N (Needs)</div>
-              </div>
-              <div style="display:flex; min-height:60px; border-bottom:1px solid #eee;">
-                <div id="tFeelings" contenteditable="true" aria-label="Your Feelings" style="flex:1; padding:0.7rem; min-height:40px; outline:1.5px solid #e6f7ec; background:#fff;"></div>
-                <div id="tNeeds" contenteditable="true" aria-label="Your Needs" style="flex:1; padding:0.7rem; min-height:40px; outline:1.5px solid #e6f7ec; background:#fff;"></div>
-              </div>
-              <div style="display:flex; border-top:2px solid #aaa; margin-top:1.2rem;">
-                <div style="flex:1; text-align:center; font-weight:bold;" class="t-feelings-label">F (Their Feelings)</div>
-                <div style="flex:1; text-align:center; font-weight:bold;" class="t-needs-label">N (Their Needs)</div>
-              </div>
-              <div style="display:flex; min-height:60px;">
-                <div id="tOtherFeelings" contenteditable="true" aria-label="Their Feelings" style="flex:1; padding:0.7rem; min-height:40px; outline:1.5px solid #e6f7ec; background:#fff;"></div>
-                <div id="tOtherNeeds" contenteditable="true" aria-label="Their Needs" style="flex:1; padding:0.7rem; min-height:40px; outline:1.5px solid #e6f7ec; background:#fff;"></div>
-              </div>
+      <form id="chatForm" autocomplete="off">
+        <div class="input-row">
+          <textarea id="userInput" rows="2" placeholder="Type your response..." required aria-label="Type your response"></textarea>
+          <button type="submit" id="sendBtn" aria-label="Send message">Send</button>
+        </div>
+      </form>
+      <div style="text-align:center; margin-top:0.6em;">
+        <button class="nvc-popup-btn" id="openFeelingsBtn">Show Feelings List</button>
+        <button class="nvc-popup-btn" id="openNeedsBtn">Show Needs List</button>
+      </div>
+    </div>
+    <div class="nvc-card" style="max-width:520px;">
+      <div id="tChartSection">
+        <h2 style="color:#222; text-align:center;">Your NVC Reflection (T-Chart)</h2>
+        <div style="display:flex; justify-content:center; margin-bottom:1rem;">
+          <div style="width:340px; border:2px solid #aaa; border-radius:10px; background:#fafbfc; padding:1.2rem;">
+            <div style="display:flex; border-bottom:2px solid #aaa;">
+              <div style="flex:1; text-align:center; font-weight:bold;" class="t-feelings-label">F (Feelings)</div>
+              <div style="flex:1; text-align:center; font-weight:bold;" class="t-needs-label">N (Needs)</div>
+            </div>
+            <div style="display:flex; min-height:56px; border-bottom:1px solid #eee;">
+              <div id="tFeelings" contenteditable="true" aria-label="Your Feelings" style="flex:1; padding:0.7rem; min-height:40px; outline:1.5px solid #e6f7ec; background:#fff;"></div>
+              <div id="tNeeds" contenteditable="true" aria-label="Your Needs" style="flex:1; padding:0.7rem; min-height:40px; outline:1.5px solid #e6f7ec; background:#fff;"></div>
+            </div>
+            <div style="display:flex; border-top:2px solid #aaa; margin-top:1.1rem;">
+              <div style="flex:1; text-align:center; font-weight:bold;" class="t-feelings-label">F (Their Feelings)</div>
+              <div style="flex:1; text-align:center; font-weight:bold;" class="t-needs-label">N (Their Needs)</div>
+            </div>
+            <div style="display:flex; min-height:56px;">
+              <div id="tOtherFeelings" contenteditable="true" aria-label="Their Feelings" style="flex:1; padding:0.7rem; min-height:40px; outline:1.5px solid #e6f7ec; background:#fff;"></div>
+              <div id="tOtherNeeds" contenteditable="true" aria-label="Their Needs" style="flex:1; padding:0.7rem; min-height:40px; outline:1.5px solid #e6f7ec; background:#fff;"></div>
             </div>
           </div>
-          <div style="text-align:center; margin-bottom:1.5rem;">
-            <label for="tSummary" style="font-weight:bold;">Synthesize your insight from this exercise:</label><br>
-            <textarea id="tSummary" rows="2" style="width:90%; max-width:400px; margin-top:0.7rem; border-radius:8px; border:1px solid #ccc; padding:0.7rem;" placeholder="Type your synthesis here..."></textarea>
-          </div>
-          <div style="text-align:center;">
-            <button id="restartBtn" style="background:#FFD600; color:#222; border:none; border-radius:8px; padding:0.7rem 1.5rem; font-size:1rem; font-weight:600; cursor:pointer;">Start Again</button>
-          </div>
-          <div style="text-align:center; margin-top:0.7em;">
-            <button id="printPdfBtn" style="background:#FFD600; color:#222; border:none; border-radius:8px; padding:0.7rem 1.5rem; font-size:1rem; font-weight:600; cursor:pointer;">Print PDF</button>
-          </div>
+        </div>
+        <div style="text-align:center; margin-bottom:1rem;">
+          <label for="tSummary" style="font-weight:bold;">Synthesize your insight from this exercise:</label><br>
+          <textarea id="tSummary" rows="2" style="width:90%; max-width:400px; margin-top:0.7rem; border-radius:8px; border:1px solid #ccc; padding:0.7rem;" placeholder="Type your synthesis here..."></textarea>
+        </div>
+        <div style="text-align:center;">
+          <button id="restartBtn" style="background:#FFD600; color:#222; border:none; border-radius:8px; padding:0.7rem 1.5rem; font-size:1rem; font-weight:600; cursor:pointer;">Start Again</button>
+        </div>
+        <div style="text-align:center; margin-top:0.7em;">
+          <button id="printPdfBtn" style="background:#FFD600; color:#222; border:none; border-radius:8px; padding:0.7rem 1.5rem; font-size:1rem; font-weight:600; cursor:pointer;">Print PDF</button>
         </div>
       </div>
     </div>
-    <!-- Modal Popups for Feelings and Needs -->
-    <div class="nvc-modal" id="feelingsModal">
-      <div class="nvc-modal-content">
-        <button class="nvc-modal-close" id="closeFeelingsModal" title="Close">&times;</button>
-        <h2 class="feelings-title">Feelings List</h2>
-        <h3>Feelings Associated with Met Needs</h3>
-        <div id="feelingsMetListModal"></div>
-        <h3>Feelings Associated with Unmet Needs</h3>
-        <div id="feelingsUnmetListModal"></div>
-      </div>
-    </div>
-    <div class="nvc-modal" id="needsModal">
-      <div class="nvc-modal-content">
-        <button class="nvc-modal-close" id="closeNeedsModal" title="Close">&times;</button>
-        <h2 class="needs-title">Needs List</h2>
-        <div id="needsListModal"></div>
-      </div>
-    </div>
-    <a href="index.html" class="back-link">&larr; Back to Home</a>
   </div>
-  <script>
-    const chatBox = document.getElementById('chatBox');
-    const chatForm = document.getElementById('chatForm');
-    const userInput = document.getElementById('userInput');
-
-    let answers = {};
-    let step = 0;
-    const tChartSection = document.getElementById('tChartSection');
-    const tFeelings = document.getElementById('tFeelings');
-    const tNeeds = document.getElementById('tNeeds');
-    const tOtherFeelings = document.getElementById('tOtherFeelings');
-    const tOtherNeeds = document.getElementById('tOtherNeeds');
-    const tSummary = document.getElementById('tSummary');
-    const restartBtn = document.getElementById('restartBtn');
-
-    const nvcFeelingsGroups = [
-      {
-        label: 'Feelings Associated with Met Needs',
-        groups: [
-          { label: 'AFFECTIONATE', items: ['compassionate','fond','loving','openhearted','tender','warm'] },
-          { label: 'ENGAGED', items: ['absorbed','curious','engrossed','enchanted','enthralled','entranced','fascinated','interested','intrigued','involved','open','spellbound','stimulated'] },
-          { label: 'EXCITED', items: ['amazed','ardent','aroused','dazzled','energetic','enlivened','enthusiastic','exuberant','invigorated','lively','passionate','surprised','vibrant'] },
-          { label: 'EXHILARATED', items: ['enthralled','radiant','electrified','euphoric','overjoyed','thrilled'] },
-          { label: 'GRATEFUL', items: ['appreciative','moved','thankful','touched'] },
-          { label: 'HAPPY', items: ['amused','blissful','cheerful','delighted','ecstatic','elated','giddy','glad','jolly','joyful','jubilant','merry','overjoyed','pleased','rapturous','tickled'] },
-          { label: 'HOPEFUL', items: ['confident','expectant','jazzed','lighthearted','sanguine','up','upbeat'] },
-          { label: 'INSPIRED', items: ['amazed','eager','enthused','motivated','moved','psyched','stimulated','stirred','wonder'] },
-          { label: 'PEACEFUL', items: ['calm','comfortable','centered','content','equanimity','fulfilled','mellow','open','quiet','relaxed','relieved','satisfied','serene','tranquil'] },
-          { label: 'REFRESHED', items: ['recharged','rejuvenated','renewed','rested','restored','revived'] }
-        ]
-      },
-      {
-        label: 'Feelings Associated with Unmet Needs',
-        groups: [
-          { label: 'ANGER', items: ['aggravated','angry','animosity','annoyed','contempt','disgruntled','enraged','exasperated','furious','hate','hostile','incensed','irate','irritated','irked','livid','miffed','nettled','outraged','peeved','resentful'] },
-          { label: 'AVERSION', items: ['abhorrence','appalled','bothered','displeased','disgust','dislike','enmity','horrified','loathing','repulsion','revulsion'] },
-          { label: 'CONFUSION', items: ['ambivalent','baffled','bewildered','conflicted','dazed','discombobulated','disoriented','mixed','mystified','perplexed','puzzled','torn'] },
-          { label: 'DISCONNECTION', items: ['apathetic','bored','closed','detached','distant','indifferent','listless','numb','withdrawn'] },
-          { label: 'DISQUIET', items: ['agitated','alarmed','concerned','distraught','disconcerted','dismayed','disturbed','frustrated','perturbed','rattled','restless','shocked','startled','surprised','troubled','turbulent','turmoil','uncomfortable','uneasy','unnerved','unsettled','upset'] },
-          { label: 'EMBARRASSMENT', items: ['ashamed','chagrined','discomfited','flustered','mortified','self-conscious'] },
-          { label: 'FATIGUE', items: ['beat','burnt out','depleted','exhausted','listless','pooped','sleepy','tired','weary','wiped out','worn out'] },
-          { label: 'FEAR', items: ['afraid','anxious','apprehensive','dread','fearful','foreboding','frightened','guarded','insecure','leery','mistrustful','panicked','petrified','scared','shaky','terrified','trepidation','wary','worried'] },
-          { label: 'PAIN', items: ['aching','agony','anguished','devastated','grief','heartbroken','hungry','hurting','lonely','miserable','regretful','remorseful'] },
-          { label: 'SADNESS', items: ['depressed','dejected','despairing','despondent','disappointed','discouraged','disheartened','forlorn','gloomy','heavy hearted','hopeless','melancholy','miserable','unhappy','wistful'] },
-          { label: 'TENSION', items: ['anxious','closed','distressed','edgy','fidgety','frazzled','frustrated','jittery','nervous','overwhelmed','restless','stressed out'] },
-          { label: 'YEARNING', items: ['longing','nostalgic','pining'] }
-        ]
-      }
-    ];
-
-    const nvcNeedsGroups = [
-      { label: 'AUTONOMY', items: ['choice','dignity','freedom','independence','self-expression','space','spontaneity'] },
-      { label: 'CONNECTION', items: ['acceptance','affection','appreciation','authenticity','belonging','care','closeness','communication','communion','community','companionship','compassion','consideration','empathy','friendship','inclusion','inspiration','integrity','intimacy','love','mutuality','nurturing','partnership','presence','respect/self-respect','security','self-acceptance','self-care','self-connection','self-expression','shared reality','stability','support','to know and be known','to see and be seen','trust','understanding','warmth'] },
-      { label: 'MEANING', items: ['awareness','celebration','challenge','clarity','competence','consciousness','contribution','creativity','discovery','efficiency','effectiveness','growth','integration','integrity','learning','mourning','movement','participation','perspective','presence','progress','purpose','self-expression','stimulation','understanding'] },
-      { label: 'PEACE', items: ['acceptance','balance','beauty','communion','ease','equanimity','faith','harmony','hope','order','peace-of-mind','space'] },
-      { label: 'PHYSICAL WELL-BEING', items: ['air','care','comfort','food','movement/exercise','rest/sleep','safety (physical)','self-care','sexual expression','shelter','touch','water'] },
-      { label: 'PLAY', items: ['adventure','excitement','fun','humor','joy','relaxation','stimulation'] }
-    ];
-
-    // Full 17-step NVC journaling flow
-  const nvcStepsFull = [
-    { prompt: "Recall a situtation that feels somewhat stuck to you. Describe what happend."    },
-    { prompt: "Synthetise the situation in factual terms. Write only the observable facts—like a camera recording the scene.", key: "observation"        },
-    { prompt: "Scan the Feelings List. Which words match what you wrote? Which go deeper?",                      key: "feeling"       },
-    { prompt: "Open the Needs List. What unmet need lies beneath each feeling you identified?",                   key: "need"               },
-    { prompt: "Sit with that need. Allow yourself to feel it fully—no fixing yet, just acknowledgement.",         key: "sitWithNeed"        },
-    { prompt: "Record any new insights or simply enter “OK” when you’re ready to continue.",                      key: "insights"           },
-    { prompt: "Brainstorm strategies to meet that need. What could you do? What might you request from someone else?", key: "strategy"         },
-    { prompt: "Turn this strategy into a clear request: “Would I/you be willing to…?”",                              key: "request"            },
-    { prompt: "Shift perspective: Imagine the other person’s experience—what might they have been feeling?",      key: "otherFeeling"       },
-    { prompt: "Identify their unmet need: Use the Feelings and Needs Lists again—just imagine with curiosity.",   key: "otherNeed"          },
-    { prompt: "Freewrite about their feelings & needs in a few sentences to process this more deeply.",           key: "freewriteOther"     },
-    { prompt: "List a few alternative strategies that could serve both sets of needs—remember, needs never conflict, only strategies do.", key: "alternativeStrategies" },
-    { prompt: "Reformulate your request so it honors both your needs and theirs.",                                 key: "reformulatedRequest" },
-    { prompt: "Check in: What do you feel now? Clarity, calm, tension—anything is valid.",                         key: "checkin"            },
-    { prompt: "Save or print your journaling as a PDF for future reflection or sharing. If you’re still unsettled, you can restart or explore a new situation. IT might be good to refer to Byron Katie's <a href="https://thework.com/instruction-the-work-byron-katie/" target="_blank" rel="noopener">The Work exercise</a>  to work on some aspects of this from a different angle before coming back, especially if it sounds like a judgement or a belief.", key: "end" }
-  ];
-    // Reset step and answers on reload
-    step = 0;
-    answers = {};
-
-    function updateTChartProgress() {
-      // Fill quadrants as answers are given, but don't overwrite if user is editing
-      if (document.activeElement !== tFeelings) tFeelings.textContent = answers['feeling'] || '';
-      if (document.activeElement !== tNeeds) tNeeds.textContent = answers['need'] || '';
-      if (document.activeElement !== tOtherFeelings) tOtherFeelings.textContent = answers['otherFeeling'] || '';
-      if (document.activeElement !== tOtherNeeds) tOtherNeeds.textContent = answers['otherNeed'] || '';
-      // Remove all highlights
-      tFeelings.classList.remove('t-highlight');
-      tNeeds.classList.remove('t-highlight');
-      tOtherFeelings.classList.remove('t-highlight');
-      tOtherNeeds.classList.remove('t-highlight');
-      // Highlight the current quadrant
-      if (step === 2) tFeelings.classList.add('t-highlight');
-      if (step === 3) tNeeds.classList.add('t-highlight');
-      if (step === 5) tOtherFeelings.classList.add('t-highlight');
-      if (step === 6) tOtherNeeds.classList.add('t-highlight');
-    }
-
-    chatForm.addEventListener('submit', function(e) {
-      e.preventDefault();
-      const text = userInput.value.trim();
-      if (!text) return;
-      addMessage('user', text);
-      if (step < nvcStepsFull.length) {
-        answers[nvcStepsFull[step].key] = text;
-      }
-      userInput.value = '';
-      step++;
-      updateTChartProgress();
-      if (step < nvcStepsFull.length) {
-        setTimeout(() => {
-          addMessage('ai', nvcStepsFull[step].prompt);
-        }, 400);
-      } else {
-        setTimeout(showTChart, 700);
-        chatForm.style.display = 'none';
-      }
+  <!-- Modal Popups for Feelings and Needs -->
+  <div class="nvc-modal" id="feelingsModal" tabindex="-1">
+    <div class="nvc-modal-content">
+      <button class="nvc-modal-close" id="closeFeelingsModal" title="Close">&times;</button>
+      <h2 class="feelings-title">Feelings List</h2>
+      <h3>Feelings Associated with Met Needs</h3>
+      <div id="feelingsMetListModal"></div>
+      <h3>Feelings Associated with Unmet Needs</h3>
+      <div id="feelingsUnmetListModal"></div>
+    </div>
+  </div>
+  <div class="nvc-modal" id="needsModal" tabindex="-1">
+    <div class="nvc-modal-content">
+      <button class="nvc-modal-close" id="closeNeedsModal" title="Close">&times;</button>
+      <h2 class="needs-title">Needs List</h2>
+      <div id="needsListModal"></div>
+    </div>
+  </div>
+  <a href="index.html" class="back-link">&larr; Back to Home</a>
+</div>
+<script>
+const nvcFeelingsGroups = [
+  {
+    label: 'Feelings Associated with Met Needs',
+    groups: [
+      { label: 'AFFECTIONATE', items: ['compassionate','fond','loving','openhearted','tender','warm'] },
+      { label: 'ENGAGED', items: ['absorbed','curious','engrossed','enchanted','enthralled','entranced','fascinated','interested','intrigued','involved','open','spellbound','stimulated'] },
+      { label: 'EXCITED', items: ['amazed','ardent','aroused','dazzled','energetic','enlivened','enthusiastic','exuberant','invigorated','lively','passionate','surprised','vibrant'] },
+      { label: 'EXHILARATED', items: ['enthralled','radiant','electrified','euphoric','overjoyed','thrilled'] },
+      { label: 'GRATEFUL', items: ['appreciative','moved','thankful','touched'] },
+      { label: 'HAPPY', items: ['amused','blissful','cheerful','delighted','ecstatic','elated','giddy','glad','jolly','joyful','jubilant','merry','overjoyed','pleased','rapturous','tickled'] },
+      { label: 'HOPEFUL', items: ['confident','expectant','jazzed','lighthearted','sanguine','up','upbeat'] },
+      { label: 'INSPIRED', items: ['amazed','eager','enthused','motivated','moved','psyched','stimulated','stirred','wonder'] },
+      { label: 'PEACEFUL', items: ['calm','comfortable','centered','content','equanimity','fulfilled','mellow','open','quiet','relaxed','relieved','satisfied','serene','tranquil'] },
+      { label: 'REFRESHED', items: ['recharged','rejuvenated','renewed','rested','restored','revived'] }
+    ]
+  },
+  {
+    label: 'Feelings Associated with Unmet Needs',
+    groups: [
+      { label: 'ANGER', items: ['aggravated','angry','animosity','annoyed','contempt','disgruntled','enraged','exasperated','furious','hate','hostile','incensed','irate','irritated','irked','livid','miffed','nettled','outraged','peeved','resentful'] },
+      { label: 'AVERSION', items: ['abhorrence','appalled','bothered','displeased','disgust','dislike','enmity','horrified','loathing','repulsion','revulsion'] },
+      { label: 'CONFUSION', items: ['ambivalent','baffled','bewildered','conflicted','dazed','discombobulated','disoriented','mixed','mystified','perplexed','puzzled','torn'] },
+      { label: 'DISCONNECTION', items: ['apathetic','bored','closed','detached','distant','indifferent','listless','numb','withdrawn'] },
+      { label: 'DISQUIET', items: ['agitated','alarmed','concerned','distraught','disconcerted','dismayed','disturbed','frustrated','perturbed','rattled','restless','shocked','startled','surprised','troubled','turbulent','turmoil','uncomfortable','uneasy','unnerved','unsettled','upset'] },
+      { label: 'EMBARRASSMENT', items: ['ashamed','chagrined','discomfited','flustered','mortified','self-conscious'] },
+      { label: 'FATIGUE', items: ['beat','burnt out','depleted','exhausted','listless','pooped','sleepy','tired','weary','wiped out','worn out'] },
+      { label: 'FEAR', items: ['afraid','anxious','apprehensive','dread','fearful','foreboding','frightened','guarded','insecure','leery','mistrustful','panicked','petrified','scared','shaky','terrified','trepidation','wary','worried'] },
+      { label: 'PAIN', items: ['aching','agony','anguished','devastated','grief','heartbroken','hungry','hurting','lonely','miserable','regretful','remorseful'] },
+      { label: 'SADNESS', items: ['depressed','dejected','despairing','despondent','disappointed','discouraged','disheartened','forlorn','gloomy','heavy hearted','hopeless','melancholy','miserable','unhappy','wistful'] },
+      { label: 'TENSION', items: ['anxious','closed','distressed','edgy','fidgety','frazzled','frustrated','jittery','nervous','overwhelmed','restless','stressed out'] },
+      { label: 'YEARNING', items: ['longing','nostalgic','pining'] }
+    ]
+  }
+];
+const nvcNeedsGroups = [
+  { label: 'AUTONOMY', items: ['choice','dignity','freedom','independence','self-expression','space','spontaneity'] },
+  { label: 'CONNECTION', items: ['acceptance','affection','appreciation','authenticity','belonging','care','closeness','communication','communion','community','companionship','compassion','consideration','empathy','friendship','inclusion','inspiration','integrity','intimacy','love','mutuality','nurturing','partnership','presence','respect/self-respect','security','self-acceptance','self-care','self-connection','self-expression','shared reality','stability','support','to know and be known','to see and be seen','trust','understanding','warmth'] },
+  { label: 'MEANING', items: ['awareness','celebration','challenge','clarity','competence','consciousness','contribution','creativity','discovery','efficiency','effectiveness','growth','integration','integrity','learning','mourning','movement','participation','perspective','presence','progress','purpose','self-expression','stimulation','understanding'] },
+  { label: 'PEACE', items: ['acceptance','balance','beauty','communion','ease','equanimity','faith','harmony','hope','order','peace-of-mind','space'] },
+  { label: 'PHYSICAL WELL-BEING', items: ['air','care','comfort','food','movement/exercise','rest/sleep','safety (physical)','self-care','sexual expression','shelter','touch','water'] },
+  { label: 'PLAY', items: ['adventure','excitement','fun','humor','joy','relaxation','stimulation'] }
+];
+const nvcStepsFull = [
+  { prompt: "Recall a situation that feels somewhat stuck to you. Describe what happened." },
+  { prompt: "Summarize the situation in factual terms. Write only the observable facts—like a camera recording the scene.", key: "observation" },
+  { prompt: "Scan the Feelings List. Which words match what you wrote? Which go deeper?", key: "feeling" },
+  { prompt: "Open the Needs List. What unmet need lies beneath each feeling you identified?", key: "need" },
+  { prompt: "Sit with that need. Allow yourself to feel it fully—no fixing yet, just acknowledgement.", key: "sitWithNeed" },
+  { prompt: "Record any new insights or simply enter “OK” when you’re ready to continue.", key: "insights" },
+  { prompt: "Brainstorm strategies to meet that need. What could you do? What might you request from someone else?", key: "strategy" },
+  { prompt: "Turn this strategy into a clear request: “Would I/you be willing to…?”", key: "request" },
+  { prompt: "Shift perspective: Imagine the other person’s experience—what might they have been feeling?", key: "otherFeeling" },
+  { prompt: "Identify their unmet need: Use the Feelings and Needs Lists again—just imagine with curiosity.", key: "otherNeed" },
+  { prompt: "Freewrite about their feelings & needs in a few sentences to process this more deeply.", key: "freewriteOther" },
+  { prompt: "List a few alternative strategies that could serve both sets of needs—remember, needs never conflict, only strategies do.", key: "alternativeStrategies" },
+  { prompt: "Reformulate your request so it honors both your needs and theirs.", key: "reformulatedRequest" },
+  { prompt: "Check in: What do you feel now? Clarity, calm, tension—anything is valid.", key: "checkin" },
+  { prompt: "Save or print your journaling as a PDF for future reflection or sharing. If you’re still unsettled, you can restart or explore a new situation. It might be good to refer to Byron Katie's <a href='https://thework.com/instruction-the-work-byron-katie/' target='_blank' rel='noopener'>The Work exercise</a> before coming back, especially if it sounds like a judgment or a belief.", key: "end" }
+];
+let step = 0;
+let answers = {};
+const chatBox = document.getElementById('chatBox');
+const chatForm = document.getElementById('chatForm');
+const userInput = document.getElementById('userInput');
+const sendBtn = document.getElementById('sendBtn');
+const tChartSection = document.getElementById('tChartSection');
+const tFeelings = document.getElementById('tFeelings');
+const tNeeds = document.getElementById('tNeeds');
+const tOtherFeelings = document.getElementById('tOtherFeelings');
+const tOtherNeeds = document.getElementById('tOtherNeeds');
+const tSummary = document.getElementById('tSummary');
+const restartBtn = document.getElementById('restartBtn');
+const printPdfBtn = document.getElementById('printPdfBtn');
+function addMessage(sender, text) {
+  const msgDiv = document.createElement('div');
+  msgDiv.className = 'message ' + sender;
+  const bubble = document.createElement('div');
+  bubble.className = 'bubble';
+  if (sender === 'ai') bubble.innerHTML = text;
+  else bubble.textContent = text;
+  msgDiv.appendChild(bubble);
+  chatBox.appendChild(msgDiv);
+  chatBox.scrollTop = chatBox.scrollHeight;
+}
+chatForm.addEventListener('submit', function(e) {
+  e.preventDefault();
+  const text = userInput.value.trim();
+  if (!text) return;
+  addMessage('user', text);
+  if (step < nvcStepsFull.length && nvcStepsFull[step].key) {
+    answers[nvcStepsFull[step].key] = text;
+  }
+  userInput.value = '';
+  step++;
+  updateTChartProgress();
+  if (step < nvcStepsFull.length) {
+    setTimeout(() => addMessage('ai', nvcStepsFull[step].prompt), 400);
+  } else {
+    setTimeout(showTChart, 700);
+    chatForm.style.display = 'none';
+  }
+});
+userInput.addEventListener('keydown', function(e) {
+  if (e.key === 'Enter' && !e.shiftKey) {
+    e.preventDefault();
+    chatForm.requestSubmit();
+  }
+});
+function updateTChartProgress() {
+  if (document.activeElement !== tFeelings) tFeelings.textContent = answers['feeling'] || '';
+  if (document.activeElement !== tNeeds) tNeeds.textContent = answers['need'] || '';
+  if (document.activeElement !== tOtherFeelings) tOtherFeelings.textContent = answers['otherFeeling'] || '';
+  if (document.activeElement !== tOtherNeeds) tOtherNeeds.textContent = answers['otherNeed'] || '';
+  tFeelings.classList.remove('t-highlight');
+  tNeeds.classList.remove('t-highlight');
+  tOtherFeelings.classList.remove('t-highlight');
+  tOtherNeeds.classList.remove('t-highlight');
+  if (step === 2) tFeelings.classList.add('t-highlight');
+  if (step === 3) tNeeds.classList.add('t-highlight');
+  if (step === 8) tOtherFeelings.classList.add('t-highlight');
+  if (step === 9) tOtherNeeds.classList.add('t-highlight');
+}
+function showTChart() {
+  updateTChartProgress();
+  tSummary.focus();
+}
+tFeelings.addEventListener('input', () => { answers['feeling'] = tFeelings.textContent; });
+tNeeds.addEventListener('input', () => { answers['need'] = tNeeds.textContent; });
+tOtherFeelings.addEventListener('input', () => { answers['otherFeeling'] = tOtherFeelings.textContent; });
+tOtherNeeds.addEventListener('input', () => { answers['otherNeed'] = tOtherNeeds.textContent; });
+restartBtn.onclick = function() {
+  chatBox.style.display = '';
+  chatBox.innerHTML = `<div class="message ai"><div class="bubble">Let's begin your NVC journaling.<br><br>
+  Take a moment to calm down and let me know when you are ready.<br><br>
+  <strong>Tip:</strong> For best results, use the <span style="color:#1DB954;">Feelings List</span> and <span style="color:#4A90E2;">Needs List</span> buttons below.
+  </div></div>`;
+  chatForm.style.display = '';
+  userInput.value = '';
+  step = 0;
+  answers = {};
+  tFeelings.textContent = '';
+  tNeeds.textContent = '';
+  tOtherFeelings.textContent = '';
+  tOtherNeeds.textContent = '';
+  tSummary.value = '';
+  updateTChartProgress();
+};
+function openModal(id) { document.getElementById(id).style.display = 'flex'; }
+function closeModal(id) { document.getElementById(id).style.display = 'none'; }
+document.getElementById('openFeelingsBtn').onclick = () => openModal('feelingsModal');
+document.getElementById('openNeedsBtn').onclick = () => openModal('needsModal');
+document.getElementById('closeFeelingsModal').onclick = () => closeModal('feelingsModal');
+document.getElementById('closeNeedsModal').onclick = () => closeModal('needsModal');
+document.getElementById('feelingsModal').addEventListener('click', function(e) {
+  if (e.target === this) this.style.display = 'none';
+});
+document.getElementById('needsModal').addEventListener('click', function(e) {
+  if (e.target === this) this.style.display = 'none';
+});
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    closeModal('feelingsModal');
+    closeModal('needsModal');
+  }
+});
+function renderNVCModals() {
+  function createTag(label, items, color) {
+    return `<span class="nvc-tag" tabindex="0" style="border-color:${color};color:${color}">${label}<span class="nvc-tooltip">${items.map(i => `<span>${i}</span>`).join('')}</span></span>`;
+  }
+  document.getElementById('feelingsMetListModal').innerHTML = `<div class='nvc-tag-row'>` +
+    nvcFeelingsGroups[0].groups.map(g => createTag(g.label, g.items, '#1DB954')).join(' ') + `</div>`;
+  document.getElementById('feelingsUnmetListModal').innerHTML = `<div class='nvc-tag-row'>` +
+    nvcFeelingsGroups[1].groups.map(g => createTag(g.label, g.items, '#E74C3C')).join(' ') + `</div>`;
+  document.getElementById('needsListModal').innerHTML = `<div class='nvc-tag-row'>` +
+    nvcNeedsGroups.map(g => createTag(g.label, g.items, '#4A90E2')).join(' ') + `</div>`;
+}
+renderNVCModals();
+function setupTagTooltips() {
+  document.querySelectorAll('.nvc-tag').forEach(tag => {
+    tag.addEventListener('touchstart', function(e) {
+      document.querySelectorAll('.nvc-tag').forEach(t => t.classList.remove('nvc-tooltip-show'));
+      tag.classList.add('nvc-tooltip-show');
+      e.stopPropagation();
     });
-
-    // Enable Enter key to submit in textarea (without Shift)
-    userInput.addEventListener('keydown', function(e) {
-      if (e.key === 'Enter' && !e.shiftKey) {
-        e.preventDefault();
-        chatForm.requestSubmit();
-      }
-    });
-
-    function addMessage(sender, text) {
-      const msgDiv = document.createElement('div');
-      msgDiv.className = 'message ' + sender;
-      const bubble = document.createElement('div');
-      bubble.className = 'bubble';
-      bubble.textContent = text;
-      msgDiv.appendChild(bubble);
-      chatBox.appendChild(msgDiv);
-      chatBox.scrollTop = chatBox.scrollHeight;
-    }
-
-    function showTChart() {
-      updateTChartProgress();
-      tSummary.focus();
-    }
-
-    tFeelings.addEventListener('input', function() {
-      answers['feeling'] = tFeelings.textContent;
-    });
-    tNeeds.addEventListener('input', function() {
-      answers['need'] = tNeeds.textContent;
-    });
-    tOtherFeelings.addEventListener('input', function() {
-      answers['otherFeeling'] = tOtherFeelings.textContent;
-    });
-    tOtherNeeds.addEventListener('input', function() {
-      answers['otherNeed'] = tOtherNeeds.textContent;
-    });
-    tSummary.disabled = false;
-    tSummary.addEventListener('input', function() {
-      // Optionally, store summary if you want to persist it
-    });
-
-    if (restartBtn) {
-      restartBtn.disabled = false;
-      restartBtn.onclick = function() {
-        chatBox.style.display = '';
-        chatBox.innerHTML = '<div class="message ai"><div class="bubble" style="color:#111;">Welcome! Let\’s transform a difficult moment through self-connection in less than 20 gentle steps. <br><br><strong>Tip:</strong> For best results, use the <span style="color:#1DB954;">Feelings List</span> and <span style="color:#4A90E2;">Needs List</span> buttons below the chatbox.</div></div>';
-        chatForm.style.display = '';
-        userInput.value = '';
-        step = 0;
-        answers = {};
-        tFeelings.textContent = '';
-        tNeeds.textContent = '';
-        tOtherFeelings.textContent = '';
-        tOtherNeeds.textContent = '';
-        tSummary.value = '';
-        updateTChartProgress();
-      };
-    }
-
-    // Modal open/close logic for Feelings/Needs buttons
-    document.getElementById('openFeelingsBtn').onclick = function() {
-      document.getElementById('feelingsModal').style.display = 'flex';
-    };
-    document.getElementById('openNeedsBtn').onclick = function() {
-      document.getElementById('needsModal').style.display = 'flex';
-    };
-    document.getElementById('closeFeelingsModal').onclick = function() {
-      document.getElementById('feelingsModal').style.display = 'none';
-    };
-    document.getElementById('closeNeedsModal').onclick = function() {
-      document.getElementById('needsModal').style.display = 'none';
-    };
-    // Close modal on outside click
-    document.getElementById('feelingsModal').addEventListener('click', function(e) {
-      if (e.target === this) this.style.display = 'none';
-    });
-    document.getElementById('needsModal').addEventListener('click', function(e) {
-      if (e.target === this) this.style.display = 'none';
-    });
-
-    // Render modal lists for feelings and needs
-    function renderNVCModals() {
-      // Helper to create tag HTML with tooltip
-      function createTag(label, items, color) {
-        return `<span class="nvc-tag" tabindex="0" style="border-color:${color};color:${color}">${label}<span class="nvc-tooltip">${items.map(i => `<span>${i}</span>`).join('')}</span></span>`;
-      }
-      // Feelings (Met)
-      const feelingsMetListModal = document.getElementById('feelingsMetListModal');
-      feelingsMetListModal.innerHTML = `<div class='nvc-tag-row'>` + nvcFeelingsGroups[0].groups.map(g =>
-        createTag(g.label, g.items, '#1DB954')
-      ).join(' ') + `</div>`;
-      // Feelings (Unmet)
-      const feelingsUnmetListModal = document.getElementById('feelingsUnmetListModal');
-      feelingsUnmetListModal.innerHTML = `<div class='nvc-tag-row'>` + nvcFeelingsGroups[1].groups.map(g =>
-        createTag(g.label, g.items, '#E74C3C')
-      ).join(' ') + `</div>`;
-      // Needs
-      const needsListModal = document.getElementById('needsListModal');
-      needsListModal.innerHTML = `<div class='nvc-tag-row'>` + nvcNeedsGroups.map(g =>
-        createTag(g.label, g.items, '#4A90E2')
-      ).join(' ') + `</div>`;
-    }
-    renderNVCModals();
-
-    // Touch/click for mobile tooltips
-    function setupTagTooltips() {
-      document.querySelectorAll('.nvc-tag').forEach(tag => {
-        tag.addEventListener('touchstart', function(e) {
-          document.querySelectorAll('.nvc-tag').forEach(t => t.classList.remove('nvc-tooltip-show'));
-          tag.classList.add('nvc-tooltip-show');
-          e.stopPropagation();
-        });
-        tag.addEventListener('click', function(e) {
-          if (window.innerWidth <= 700) {
-            document.querySelectorAll('.nvc-tag').forEach(t => t.classList.remove('nvc-tooltip-show'));
-            tag.classList.add('nvc-tooltip-show');
-            e.stopPropagation();
-          }
-        });
-      });
-      document.body.addEventListener('click', function() {
+    tag.addEventListener('click', function(e) {
+      if (window.innerWidth <= 700) {
         document.querySelectorAll('.nvc-tag').forEach(t => t.classList.remove('nvc-tooltip-show'));
-      });
-    }
-    // Re-setup tooltips after rendering modals
-    renderNVCModals();
-    setTimeout(setupTagTooltips, 100);
-
-    document.getElementById('printPdfBtn').onclick = function() {
-      window.print();
-    };
-  </script>
+        tag.classList.add('nvc-tooltip-show');
+        e.stopPropagation();
+      }
+    });
+  });
+  document.body.addEventListener('click', function() {
+    document.querySelectorAll('.nvc-tag').forEach(t => t.classList.remove('nvc-tooltip-show'));
+  });
+}
+setTimeout(setupTagTooltips, 100);
+printPdfBtn.onclick = () => window.print();
+</script>
 </body>
 </html>
