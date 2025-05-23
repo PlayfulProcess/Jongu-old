@@ -435,9 +435,11 @@
 </head>
 <body>
   <div class="container">
-    <h1>NVC Journaling Exercise</h1>
+    <h1>Compassionate Self-Connection: A Journey Through Feelings & Needs</h1>
     <div class="intro">
-      <p>Engage in a Nonviolent Communication (NVC) self-connection exercise. <strong>This is a self-guided journaling tool and does not use an AI assistant.</strong> This journaling prompt is inspired by <a href="https://www.nycnvc.org/the-exercise" target="_blank">NYC NVC's self-empathy process</a>. Your responses are private and can help you gain clarity and compassion for yourself.</p>
+      <p>Compassionate Self-Connection: A Journey Through Feelings & Needs  
+Engage in a Nonviolent Communication (NVC) self-connection exercise. This is a self-guided journaling tool and does not use an AI assistant. This journaling prompt is inspired by <a href="https://www.nycnvc.org/the-exercise" target="_blank">NYC NVC's self-empathy process</a> and incorporates Byron Katie's "The Work" for identifying and questioning thoughts. For a comprehensive list of feelings and needs, you can refer to this NVC Feelings and Needs List or the buttons below. Your responses are private and can help you gain clarity and compassion for yourself. This guided exercise will help you process difficult moments through self-connection and empathy. Each step builds on the previous one, helping you explore your experience and find new possibilities.
+</p>
     </div>
     <div class="nvc-flex-main">
       <div class="nvc-chat-col nvc-card">
@@ -570,16 +572,26 @@
       { label: 'PLAY', items: ['adventure','excitement','fun','humor','joy','relaxation','stimulation'] }
     ];
 
-    // Add extra steps for other person's feelings/needs
-    const nvcStepsFull = [
-      { prompt: "Thank you for sharing. Can you describe what happened, just the facts, without judgments or interpretations?", key: "observation" },
-      { prompt: "How do you feel about this situation?", key: "feeling" },
-      { prompt: "What needs of yours are connected to these feelings?", key: "need" },
-      { prompt: "Would you like to make a request of yourself or someone else? If so, what is it?", key: "request" },
-      { prompt: "Now, imagine what the other person was feeling when they said those words.", key: "otherFeeling" },
-      { prompt: "What do you think the other person was needing and not getting in that moment?", key: "otherNeed" },
-      { prompt: "Thank you for completing the exercise. Take a moment to notice how you feel now. If you'd like, you can start again or reflect further below.", key: "end" }
-    ];
+    // Full 17-step NVC journaling flow
+  const nvcStepsFull = [
+    { prompt: "Close your eyes and take a deep breath. Notice what’s present in your body and mind.",              key: "grounding"          },
+    { prompt: "Recall a difficult moment. Choose a recent argument, misunderstanding, disappointment, or anything weighing on you.", key: "difficultMoment"    },
+    { prompt: "Freewrite: Describe what happened, how it felt, and why it was hard—no editing, no censoring.",    key: "freewrite"          },
+    { prompt: "Scan the Feelings List. Which words match what you wrote? Which go deeper?",                      key: "scanFeelings"       },
+    { prompt: "Name the situation in factual terms. Write only the observable facts—like a camera recording the scene.", key: "observation"        },
+    { prompt: "Open the Needs List. What unmet need lies beneath each feeling you identified?",                   key: "need"               },
+    { prompt: "Sit with that need. Allow yourself to feel it fully—no fixing yet, just acknowledgement.",         key: "sitWithNeed"        },
+    { prompt: "Record any new insights or simply enter “OK” when you’re ready to continue.",                      key: "insights"           },
+    { prompt: "Brainstorm strategies to meet that need. What could you do? What might you request from someone else?", key: "strategy"         },
+    { prompt: "Turn one strategy into a clear request: “Would you be willing to…?”",                              key: "request"            },
+    { prompt: "Shift perspective: Imagine the other person’s experience—what might they have been feeling?",      key: "otherFeeling"       },
+    { prompt: "Identify their unmet need: Use the Feelings and Needs Lists again—just imagine with curiosity.",   key: "otherNeed"          },
+    { prompt: "Freewrite about their feelings & needs in a few sentences to process this more deeply.",           key: "freewriteOther"     },
+    { prompt: "List a few alternative strategies that could serve both sets of needs—remember, needs never conflict, only strategies do.", key: "alternativeStrategies" },
+    { prompt: "Reformulate your request so it honors both your needs and theirs.",                                 key: "reformulatedRequest" },
+    { prompt: "Check in: What do you feel now? Clarity, calm, tension—anything is valid.",                         key: "checkin"            },
+    { prompt: "Save or print your journaling as a PDF for future reflection or sharing. If you’re still unsettled, you can restart or explore a new situation.", key: "end" }
+  ];
     // Reset step and answers on reload
     step = 0;
     answers = {};
@@ -668,7 +680,7 @@
       restartBtn.disabled = false;
       restartBtn.onclick = function() {
         chatBox.style.display = '';
-        chatBox.innerHTML = '<div class="message ai"><div class="bubble" style="color:#111;">Welcome! Let\'s begin your NVC journaling. What situation or feeling would you like to explore today?<br><br><strong>Tip:</strong> For best results, use the <span style="color:#1DB954;">Feelings List</span> and <span style="color:#4A90E2;">Needs List</span> buttons below the chatbox. Try to use the words from those lists when describing your experience.</div></div>';
+        chatBox.innerHTML = '<div class="message ai"><div class="bubble" style="color:#111;">Welcome! Let\’s transform a difficult moment through self-connection in less than 20 gentle steps. <br><br><strong>Tip:</strong> For best results, use the <span style="color:#1DB954;">Feelings List</span> and <span style="color:#4A90E2;">Needs List</span> buttons below the chatbox.</div></div>';
         chatForm.style.display = '';
         userInput.value = '';
         step = 0;
