@@ -444,7 +444,7 @@ Engage in a Nonviolent Communication (NVC) self-connection exercise. This is a s
     <div class="nvc-flex-main">
       <div class="nvc-chat-col nvc-card">
         <div class="chat-box" id="chatBox">
-          <div class="message ai"><div class="bubble" style="color:#111;">Welcome! Let's begin your NVC journaling. What situation or feeling would you like to explore today?<br><br><strong>Tip:</strong> For best results, use the <span style="color:#1DB954;">Feelings List</span> and <span style="color:#4A90E2;">Needs List</span> buttons below the chatbox. Try to use the words from those lists when describing your experience.</div></div>
+          <div class="message ai"><div class="bubble" style="color:#111;">Let's begin your NVC journaling. First, take a moment to calm down and be present and let me know when you are ready.<br><br><strong>Tip:</strong> For best results, use the <span style="color:#1DB954;">Feelings List</span> and <span style="color:#4A90E2;">Needs List</span> buttons below the chatbox. Try to use the words from those lists when describing your experience.</div></div>
         </div>
         <form id="chatForm" autocomplete="off">
           <div class="input-row">
@@ -574,10 +574,9 @@ Engage in a Nonviolent Communication (NVC) self-connection exercise. This is a s
 
     // Full 17-step NVC journaling flow
   const nvcStepsFull = [
-    { prompt: "Close your eyes and take a deep breath. Notice what’s present in your body and mind.",              key: "grounding"          },
-    { prompt: "Recall a difficult moment. Choose a recent argument, misunderstanding, disappointment, or anything weighing on you.", key: "difficultMoment"    },
-    { prompt: "Freewrite: Describe what happened, how it felt, and why it was hard—no editing, no censoring.",    key: "freewrite"          },
-    { prompt: "Scan the Feelings List. Which words match what you wrote? Which go deeper?",                      key: "scanFeelings"       },
+    { prompt: "Recall a situtation that feels somewhat stuck to you. Describe what happend."    },
+    { prompt: "Freewrite: Describe what happened, how it felt, and why it was hard—no editing, no censoring."      },
+    { prompt: "Scan the Feelings List. Which words match what you wrote? Which go deeper?",                      key: "feeling"       },
     { prompt: "Name the situation in factual terms. Write only the observable facts—like a camera recording the scene.", key: "observation"        },
     { prompt: "Open the Needs List. What unmet need lies beneath each feeling you identified?",                   key: "need"               },
     { prompt: "Sit with that need. Allow yourself to feel it fully—no fixing yet, just acknowledgement.",         key: "sitWithNeed"        },
