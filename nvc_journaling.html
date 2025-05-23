@@ -575,21 +575,20 @@ Engage in a Nonviolent Communication (NVC) self-connection exercise. This is a s
     // Full 17-step NVC journaling flow
   const nvcStepsFull = [
     { prompt: "Recall a situtation that feels somewhat stuck to you. Describe what happend."    },
-    { prompt: "Freewrite: Describe what happened, how it felt, and why it was hard—no editing, no censoring."      },
+    { prompt: "Synthetise the situation in factual terms. Write only the observable facts—like a camera recording the scene.", key: "observation"        },
     { prompt: "Scan the Feelings List. Which words match what you wrote? Which go deeper?",                      key: "feeling"       },
-    { prompt: "Name the situation in factual terms. Write only the observable facts—like a camera recording the scene.", key: "observation"        },
     { prompt: "Open the Needs List. What unmet need lies beneath each feeling you identified?",                   key: "need"               },
     { prompt: "Sit with that need. Allow yourself to feel it fully—no fixing yet, just acknowledgement.",         key: "sitWithNeed"        },
     { prompt: "Record any new insights or simply enter “OK” when you’re ready to continue.",                      key: "insights"           },
     { prompt: "Brainstorm strategies to meet that need. What could you do? What might you request from someone else?", key: "strategy"         },
-    { prompt: "Turn one strategy into a clear request: “Would you be willing to…?”",                              key: "request"            },
+    { prompt: "Turn this strategy into a clear request: “Would I/you be willing to…?”",                              key: "request"            },
     { prompt: "Shift perspective: Imagine the other person’s experience—what might they have been feeling?",      key: "otherFeeling"       },
     { prompt: "Identify their unmet need: Use the Feelings and Needs Lists again—just imagine with curiosity.",   key: "otherNeed"          },
     { prompt: "Freewrite about their feelings & needs in a few sentences to process this more deeply.",           key: "freewriteOther"     },
     { prompt: "List a few alternative strategies that could serve both sets of needs—remember, needs never conflict, only strategies do.", key: "alternativeStrategies" },
     { prompt: "Reformulate your request so it honors both your needs and theirs.",                                 key: "reformulatedRequest" },
     { prompt: "Check in: What do you feel now? Clarity, calm, tension—anything is valid.",                         key: "checkin"            },
-    { prompt: "Save or print your journaling as a PDF for future reflection or sharing. If you’re still unsettled, you can restart or explore a new situation.", key: "end" }
+    { prompt: "Save or print your journaling as a PDF for future reflection or sharing. If you’re still unsettled, you can restart or explore a new situation. IT might be good to refer to Byron Katie's <a href="https://thework.com/instruction-the-work-byron-katie/" target="_blank" rel="noopener">The Work exercise</a>  to work on some aspects of this from a different angle before coming back, especially if it sounds like a judgement or a belief.", key: "end" }
   ];
     // Reset step and answers on reload
     step = 0;
