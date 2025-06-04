@@ -1,0 +1,221 @@
+<style>
+.nvc-popup-btn {
+  background: #fff;
+  color: #222;
+  border: 2px solid #bbb;
+  border-radius: 10px;
+  padding: 0.7em 1.2em;
+  font-size: 1em;
+  font-weight: 700;
+  margin: 0 0.5em 1em 0;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+  box-shadow: 0 2px 8px #1db95422;
+  outline: none;
+}
+.nvc-popup-btn#openFeelingsBtn { color: #1DB954; border-color: #1DB954; }
+.nvc-popup-btn#openNeedsBtn { color: #4A90E2; border-color: #4A90E2; }
+.nvc-popup-btn#openFeelingsBtn:hover { background: #1DB954; color: #fff; }
+.nvc-popup-btn#openNeedsBtn:hover { background: #4A90E2; color: #fff; }
+.nvc-modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0; top: 0; width: 100vw; height: 100vh;
+  background: rgba(0,0,0,0.18);
+  align-items: center;
+  justify-content: center;
+  overflow-y: auto;
+}
+.nvc-modal-content {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+  padding: 1.5rem;
+  max-width: 95vw;
+  max-height: 90vh;
+  overflow-y: auto;
+  min-width: 280px;
+  min-height: 120px;
+  position: relative;
+  color: #222;
+}
+.nvc-modal-content h2.feelings-title { color: #1DB954; }
+.nvc-modal-content h2.needs-title { color: #4A90E2; }
+.nvc-modal-close {
+  position: absolute;
+  top: 0.7em;
+  right: 1.1em;
+  font-size: 1.5em;
+  color: #aaa;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  transition: color 0.2s;
+}
+.nvc-modal-close:hover { color: #1DB954; }
+.nvc-tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.3em;
+  margin-bottom: 1em;
+  width: 100%;
+}
+.nvc-tag {
+  display: inline-block;
+  border: 2px solid #1DB954;
+  border-radius: 18px;
+  padding: 0.3em 1em;
+  margin: 0.1em 0.3em 0.1em 0;
+  font-size: 1em;
+  font-weight: 600;
+  background: #f8fbff;
+  cursor: pointer;
+  position: relative;
+  max-width: 100%;
+  color: #444;
+  border-color: #bbb;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+}
+.nvc-tag[style*='#1DB954'] { color: #1DB954 !important; border-color: #1DB954 !important; }
+.nvc-tag[style*='#E74C3C'] { color: #E74C3C !important; border-color: #E74C3C !important; background: #fff6f6; }
+.nvc-tag[style*='#4A90E2'] { color: #4A90E2 !important; border-color: #4A90E2 !important; }
+.nvc-tooltip {
+  display: none;
+  position: absolute;
+  left: 50%;
+  top: 110%;
+  transform: translateX(-50%);
+  background: #fff;
+  color: #333;
+  border-radius: 10px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.13);
+  padding: 0.7em 1.1em;
+  min-width: 180px;
+  z-index: 1001;
+  font-size: 0.98em;
+  text-align: left;
+  max-height: 60vh;
+  overflow-y: auto;
+  border: 1.5px solid #1DB95433;
+  white-space: normal;
+  word-break: break-word;
+}
+.nvc-tooltip span {
+  display: block;
+  margin-bottom: 0.2em;
+  word-break: break-word;
+}
+.nvc-tag:hover .nvc-tooltip, .nvc-tag:focus .nvc-tooltip, .nvc-tag.nvc-tooltip-show .nvc-tooltip {
+  display: block;
+}
+</style>
+
+<div style="text-align:center; margin-top:0.6em;">
+  <button class="nvc-popup-btn" id="openFeelingsBtn">Feelings List</button>
+  <button class="nvc-popup-btn" id="openNeedsBtn">Needs List</button>
+</div>
+
+<!-- Modal Popup for Feelings -->
+<div class="nvc-modal" id="feelingsModal" tabindex="-1">
+  <div class="nvc-modal-content">
+    <button class="nvc-modal-close" id="closeFeelingsModal" title="Close">&times;</button>
+    <h2 class="feelings-title">Feelings List</h2>
+    <h3>Feelings Associated with Met Needs</h3>
+    <div id="feelingsMetListModal"></div>
+    <h3>Feelings Associated with Unmet Needs</h3>
+    <div id="feelingsUnmetListModal"></div>
+  </div>
+</div>
+<!-- Modal Popup for Needs -->
+<div class="nvc-modal" id="needsModal" tabindex="-1">
+  <div class="nvc-modal-content">
+    <button class="nvc-modal-close" id="closeNeedsModal" title="Close">&times;</button>
+    <h2 class="needs-title">Needs List</h2>
+    <div id="needsListModal"></div>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Data
+  const nvcFeelingsGroups = [
+    {
+      label: 'Feelings Associated with Met Needs',
+      groups: [
+        { label: 'AFFECTIONATE', items: ['compassionate','fond','loving','openhearted','tender','warm'] },
+        { label: 'ENGAGED', items: ['absorbed','curious','engrossed','enchanted','enthralled','entranced','fascinated','interested','intrigued','involved','open','spellbound','stimulated'] },
+        { label: 'EXCITED', items: ['amazed','ardent','aroused','dazzled','energetic','enlivened','enthusiastic','exuberant','invigorated','lively','passionate','surprised','vibrant'] },
+        { label: 'EXHILARATED', items: ['enthralled','radiant','electrified','euphoric','overjoyed','thrilled'] },
+        { label: 'GRATEFUL', items: ['appreciative','moved','thankful','touched'] },
+        { label: 'HAPPY', items: ['amused','blissful','cheerful','delighted','ecstatic','elated','giddy','glad','jolly','joyful','jubilant','merry','overjoyed','pleased','rapturous','tickled'] },
+        { label: 'HOPEFUL', items: ['confident','expectant','jazzed','lighthearted','sanguine','up','upbeat'] },
+        { label: 'INSPIRED', items: ['amazed','eager','enthused','motivated','moved','psyched','stimulated','stirred','wonder'] },
+        { label: 'PEACEFUL', items: ['calm','comfortable','centered','content','equanimity','fulfilled','mellow','open','quiet','relaxed','relieved','satisfied','serene','tranquil'] },
+        { label: 'REFRESHED', items: ['recharged','rejuvenated','renewed','rested','restored','revived'] }
+      ]
+    },
+    {
+      label: 'Feelings Associated with Unmet Needs',
+      groups: [
+        { label: 'ANGER', items: ['aggravated','angry','animosity','annoyed','contempt','disgruntled','enraged','exasperated','furious','hate','hostile','incensed','irate','irritated','irked','livid','miffed','nettled','outraged','peeved','resentful'] },
+        { label: 'AVERSION', items: ['abhorrence','appalled','bothered','displeased','disgust','dislike','enmity','horrified','loathing','repulsion','revulsion'] },
+        { label: 'CONFUSION', items: ['ambivalent','baffled','bewildered','conflicted','dazed','discombobulated','disoriented','mixed','mystified','perplexed','puzzled','torn'] },
+        { label: 'DISCONNECTION', items: ['apathetic','bored','closed','detached','distant','indifferent','listless','numb','withdrawn'] },
+        { label: 'DISQUIET', items: ['agitated','alarmed','concerned','distraught','disconcerted','dismayed','disturbed','frustrated','perturbed','rattled','restless','shocked','startled','surprised','troubled','turbulent','turmoil','uncomfortable','uneasy','unnerved','unsettled','upset'] },
+        { label: 'EMBARRASSMENT', items: ['ashamed','chagrined','discomfited','flustered','mortified','self-conscious'] },
+        { label: 'FATIGUE', items: ['beat','burnt out','depleted','exhausted','listless','pooped','sleepy','tired','weary','wiped out','worn out'] },
+        { label: 'FEAR', items: ['afraid','anxious','apprehensive','dread','fearful','foreboding','frightened','guarded','insecure','leery','mistrustful','panicked','petrified','scared','shaky','terrified','trepidation','wary','worried'] },
+        { label: 'PAIN', items: ['aching','agony','anguished','devastated','grief','heartbroken','hungry','hurting','lonely','miserable','regretful','remorseful'] },
+        { label: 'SADNESS', items: ['depressed','dejected','despairing','despondent','disappointed','discouraged','disheartened','forlorn','gloomy','heavy hearted','hopeless','melancholy','miserable','unhappy','wistful'] },
+        { label: 'TENSION', items: ['anxious','closed','distressed','edgy','fidgety','frazzled','frustrated','jittery','nervous','overwhelmed','restless','stressed out'] },
+        { label: 'YEARNING', items: ['longing','nostalgic','pining'] }
+      ]
+    }
+  ];
+  const nvcNeedsGroups = [
+    { label: 'AUTONOMY', items: ['choice','dignity','freedom','independence','self-expression','space','spontaneity'] },
+    { label: 'CONNECTION', items: ['acceptance','affection','appreciation','authenticity','belonging','care','closeness','communication','communion','community','companionship','compassion','consideration','empathy','friendship','inclusion','inspiration','integrity','intimacy','love','mutuality','nurturing','partnership','presence','respect/self-respect','security','self-acceptance','self-care','self-connection','self-expression','shared reality','stability','support','to know and be known','to see and be seen','trust','understanding','warmth'] },
+    { label: 'MEANING', items: ['awareness','celebration','challenge','clarity','competence','consciousness','contribution','creativity','discovery','efficiency','effectiveness','growth','integration','integrity','learning','mourning','movement','participation','perspective','presence','progress','purpose','self-expression','stimulation','understanding'] },
+    { label: 'PEACE', items: ['acceptance','balance','beauty','communion','ease','equanimity','faith','harmony','hope','order','peace-of-mind','space'] },
+    { label: 'PHYSICAL WELL-BEING', items: ['air','care','comfort','food','movement/exercise','rest/sleep','safety (physical)','self-care','sexual expression','shelter','touch','water'] },
+    { label: 'PLAY', items: ['adventure','excitement','fun','humor','joy','relaxation','stimulation'] }
+  ];
+
+  function createTag(label, items, color) {
+    return `<span class="nvc-tag" tabindex="0" style="border-color:${color};color:${color}">${label}<span class="nvc-tooltip">${items.map(i => `<span>${i}</span>`).join('')}</span></span>`;
+  }
+  function renderFeelingsModals() {
+    document.getElementById('feelingsMetListModal').innerHTML = `<div class='nvc-tag-row'>` +
+      nvcFeelingsGroups[0].groups.map(g => createTag(g.label, g.items, '#1DB954')).join(' ') + `</div>`;
+    document.getElementById('feelingsUnmetListModal').innerHTML = `<div class='nvc-tag-row'>` +
+      nvcFeelingsGroups[1].groups.map(g => createTag(g.label, g.items, '#E74C3C')).join(' ') + `</div>`;
+  }
+  function renderNeedsModal() {
+    document.getElementById('needsListModal').innerHTML = `<div class='nvc-tag-row'>` +
+      nvcNeedsGroups.map(g => createTag(g.label, g.items, '#4A90E2')).join(' ') + `</div>`;
+  }
+  renderFeelingsModals();
+  renderNeedsModal();
+
+  // Modal open/close logic
+  document.getElementById('openFeelingsBtn').onclick = () => document.getElementById('feelingsModal').style.display = 'flex';
+  document.getElementById('openNeedsBtn').onclick = () => document.getElementById('needsModal').style.display = 'flex';
+  document.getElementById('closeFeelingsModal').onclick = () => document.getElementById('feelingsModal').style.display = 'none';
+  document.getElementById('closeNeedsModal').onclick = () => document.getElementById('needsModal').style.display = 'none';
+  document.getElementById('feelingsModal').addEventListener('click', function(e) {
+    if (e.target === this) this.style.display = 'none';
+  });
+  document.getElementById('needsModal').addEventListener('click', function(e) {
+    if (e.target === this) this.style.display = 'none';
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      document.getElementById('feelingsModal').style.display = 'none';
+      document.getElementById('needsModal').style.display = 'none';
+    }
+  });
+});
+</script> 

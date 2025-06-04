@@ -284,8 +284,8 @@
   <div class="intro">
     <p>
       Engage in a Nonviolent Communication (NVC) self-connection exercise. This is a self-guided journaling tool (no AI assistant).
-      This journaling prompt is inspired by <a href="https://www.nycnvc.org/the-exercise" target="_blank">NYC NVC's self-empathy process</a> and Byron Katie's "The Work" for questioning thoughts.<br>
-      <strong>Tip:</strong> Use the <span class="tip-green">Feelings List</span> and <span class="tip-blue">Needs List</span> buttons. Your responses are private and can help you gain clarity and compassion for yourself.
+      This journaling prompt is inspired by <a href="https://www.nycnvc.org/the-exercise" target="_blank">NYC NVC's self-empathy process</a>.<br>
+      <strong>Tip:</strong> Use the <span class="tip-green">Feelings List</span> and <span class="tip-blue">Needs List</span> buttons. Your responses are private and can help you gain clarity and compassion for yourself. You can print the PDF to save your summary reflection or upload it to your favorite AI tool to deepen your insights.
     </p>
   </div>
   <div class="nvc-flex-main">
@@ -419,8 +419,7 @@ const nvcStepsFull = [
   { prompt: "Identify their unmet need: Use the Needs List again—just imagine with curiosity.", key: "otherNeed" },
   { prompt: "List a few alternative strategies that could serve both sets of needs—remember, needs never conflict, only strategies do.", key: "alternativeStrategies" },
   { prompt: "Reformulate your request so it honors both your needs and theirs.", key: "reformulatedRequest" },
-  { prompt: "Check in: What do you feel now? Clarity, calm, tension—anything is valid.", key: "checkin" },
-  { prompt: "Save or print your journaling as a PDF for future reflection or sharing. If you're still unsettled, you can restart or explore a new situation. It might be good to refer to Byron Katie's <a href='https://thework.com/instruction-the-work-byron-katie/' target='_blank' rel='noopener'>The Work exercise</a> before coming back, especially if it sounds like a judgment or a belief.", key: "end" }
+  { prompt: "Check in: What do you feel now? Clarity, calm, tension—anything is valid.", key: "checkin" }
 ];
 let step = 0;
 let answers = {};
@@ -463,6 +462,7 @@ chatForm.addEventListener('submit', function(e) {
   } else {
     setTimeout(showTChart, 700);
     chatForm.style.display = 'none';
+    setTimeout(() => addMessage('ai', 'Save or print your journaling as a PDF for future reflection or sharing.<br><br>Sometimes, what gets us stuck is believing something to be absolutely true when there might be room for reframing. If there is a belief behind your feelings right now, you might benefit from using the <a href="reframe_a_thought.html" target="_blank" rel="noopener">Reframe a Thought tool</a>.'), 900);
   }
 });
 userInput.addEventListener('keydown', function(e) {
