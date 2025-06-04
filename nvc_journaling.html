@@ -19,15 +19,17 @@
       padding: 1rem;
     }
     h1 {
-      color: #1DB954;
+      color: #222;
       text-align: center;
       margin-bottom: 1rem;
     }
     .intro {
       text-align: center;
       margin-bottom: 2rem;
-      color: #4A90E2;
+      color: #333;
     }
+    .intro .tip-green { color: #1DB954; }
+    .intro .tip-blue { color: #4A90E2; }
     .nvc-flex-main {
       display: flex;
       gap: 2rem;
@@ -65,7 +67,7 @@
     }
     .message.ai .bubble {
       background: #e6f7ec;
-      color: #1DB954;
+      color: #222;
       margin-right: auto;
     }
     .message.user .bubble {
@@ -283,7 +285,7 @@
     <p>
       Engage in a Nonviolent Communication (NVC) self-connection exercise. This is a self-guided journaling tool (no AI assistant).
       This journaling prompt is inspired by <a href="https://www.nycnvc.org/the-exercise" target="_blank">NYC NVC's self-empathy process</a> and Byron Katie's "The Work" for questioning thoughts.<br>
-      <strong>Tip:</strong> Use the <span style="color:#1DB954;">Feelings List</span> and <span style="color:#4A90E2;">Needs List</span> buttons. Your responses are private and can help you gain clarity and compassion for yourself.
+      <strong>Tip:</strong> Use the <span class="tip-green">Feelings List</span> and <span class="tip-blue">Needs List</span> buttons. Your responses are private and can help you gain clarity and compassion for yourself.
     </p>
   </div>
   <div class="nvc-flex-main">
@@ -405,17 +407,16 @@ const nvcNeedsGroups = [
   { label: 'PLAY', items: ['adventure','excitement','fun','humor','joy','relaxation','stimulation'] }
 ];
 const nvcStepsFull = [
-  { prompt: "Recall a situation that feels somewhat stuck to you. Describe what happened." },
+  { prompt: "" },
+  { prompt: "Recall a situation that feels somewhat stuck to you as a result of some kind of conflict. Describe what happened." },
   { prompt: "Summarize the situation in factual terms. Write only the observable facts—like a camera recording the scene.", key: "observation" },
-  { prompt: "Scan the Feelings List. Which words match what you wrote? Which go deeper?", key: "feeling" },
+  { prompt: "Scan the Feelings List and try to find one or two words that best describe how you are feeling about the situation.", key: "feeling" },
   { prompt: "Open the Needs List. What unmet need lies beneath each feeling you identified?", key: "need" },
-  { prompt: "Sit with that need. Allow yourself to feel it fully—no fixing yet, just acknowledgement.", key: "sitWithNeed" },
-  { prompt: "Record any new insights or simply enter \"OK\" when you're ready to continue.", key: "insights" },
+  { prompt: "Sit with that need. Allow yourself to feel it fully—no fixing yet, just acknowledgement. Write down what is passing through your mind to help you process or just tell me when you are ready to move on.", key: "sitWithNeed" },
   { prompt: "Brainstorm strategies to meet that need. What could you do? What might you request from someone else?", key: "strategy" },
   { prompt: "Turn this strategy into a clear request: \"Would I/you be willing to...?\"", key: "request" },
   { prompt: "Shift perspective: Imagine the other person's experience—what might they have been feeling?", key: "otherFeeling" },
-  { prompt: "Identify their unmet need: Use the Feelings and Needs Lists again—just imagine with curiosity.", key: "otherNeed" },
-  { prompt: "Freewrite about their feelings & needs in a few sentences to process this more deeply.", key: "freewriteOther" },
+  { prompt: "Identify their unmet need: Use the Needs List again—just imagine with curiosity.", key: "otherNeed" },
   { prompt: "List a few alternative strategies that could serve both sets of needs—remember, needs never conflict, only strategies do.", key: "alternativeStrategies" },
   { prompt: "Reformulate your request so it honors both your needs and theirs.", key: "reformulatedRequest" },
   { prompt: "Check in: What do you feel now? Clarity, calm, tension—anything is valid.", key: "checkin" },
@@ -479,10 +480,10 @@ function updateTChartProgress() {
   tNeeds.classList.remove('t-highlight');
   tOtherFeelings.classList.remove('t-highlight');
   tOtherNeeds.classList.remove('t-highlight');
-  if (step === 2) tFeelings.classList.add('t-highlight');
-  if (step === 3) tNeeds.classList.add('t-highlight');
-  if (step === 8) tOtherFeelings.classList.add('t-highlight');
-  if (step === 9) tOtherNeeds.classList.add('t-highlight');
+  if (step - 1 === 2) tFeelings.classList.add('t-highlight');
+  if (step - 1 === 3) tNeeds.classList.add('t-highlight');
+  if (step - 1 === 7) tOtherFeelings.classList.add('t-highlight');
+  if (step - 1 === 8) tOtherNeeds.classList.add('t-highlight');
 }
 function showTChart() {
   updateTChartProgress();
@@ -498,9 +499,8 @@ restartBtn.onclick = function() {
   Take a moment to calm down and let me know when you are ready.<br><br>
   <strong>Tip:</strong> For best results, use the <span style="color:#1DB954;">Feelings List</span> and <span style="color:#4A90E2;">Needs List</span> buttons below.
   </div></div>`;
-  chatForm.style.display = '';
-  userInput.value = '';
-  step = 0;
+  addMessage('ai', nvcStepsFull[0].prompt);
+  step = 1;
   answers = {};
   tFeelings.textContent = '';
   tNeeds.textContent = '';
