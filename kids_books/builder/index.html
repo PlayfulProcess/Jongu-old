@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Your Story (Beta) - Jongu Kids Books</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #1DB954;
+            --secondary-color: #FFD700;
+            --accent-color: #4A90E2;
+            --text-color: #333;
+            --light-text: #fff;
+            --background-color: #F0F4F8;
+            --section-bg: #fff;
+            --border-radius: 8px;
+            --box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+
+        .container {
+            display: flex;
+            height: 100vh;
+            padding: 20px;
+            gap: 20px;
+        }
+
+        .panel {
+            background: var(--section-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        #pageList {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        #preview {
+            flex: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #chatInterface {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .page-item {
+            background: white;
+            border: 1px solid #eee;
+            border-radius: var(--border-radius);
+            padding: 10px;
+            margin-bottom: 10px;
+            cursor: move;
+        }
+
+        .page-item img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+        }
+
+        .preview-content {
+            width: 100%;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        .preview-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: var(--border-radius);
+            margin-bottom: 20px;
+        }
+
+        .preview-content textarea {
+            width: 100%;
+            min-height: 100px;
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            font-family: inherit;
+        }
+
+        .btn {
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+            border: none;
+            padding: 10px 20px;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #e6c300;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #169c46;
+        }
+
+        #chatFrame {
+            width: 100%;
+            height: calc(100% - 40px);
+            border: none;
+            border-radius: var(--border-radius);
+        }
+
+        .header {
+            text-align: center;
+            padding: 20px;
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 2rem;
+        }
+
+        .header p {
+            margin: 10px 0 0;
+            opacity: 0.9;
+        }
+
+        .back-link {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="../kids_books.html" class="back-link">&larr; Back to Books</a>
+        <h1>Create Your Story <span style="font-size:0.6em; color:#FFD700; font-weight:600;">(Beta)</span></h1>
+        <p>Talk to the assistant, preview your pages, and build your book!</p>
+        <div style="background:#fff3cd; color:#856404; border:1px solid #ffeeba; border-radius:8px; padding:10px 18px; margin:18px auto 0; max-width:700px; font-size:1.05em;">
+            <strong>Note:</strong> Your book pages are stored only temporarily in your browser. If you refresh or close this page, your work will be lost unless you export your book as a PDF. Cloud saving and cross-device access are not enabled yet.
+        </div>
+    </div>
+
+    <div class="container">
+        <div id="pageList" class="panel" style="flex: 0.8; min-width: 200px;">
+            <h2>Your Pages</h2>
+            <div id="pagesContainer">
+                <!-- Pages will be added here dynamically -->
+            </div>
+            <button id="exportBtn" class="btn btn-primary" style="width: 100%; margin-top: 20px;">
+                Export Book
+            </button>
+        </div>
+
+        <div id="preview" class="panel" style="flex: 1.2; max-width: 500px;">
+            <h2>Preview</h2>
+            <div class="preview-content">
+                <img id="previewImage" src="" alt="Preview" style="display: none;">
+                <div style="margin-bottom: 10px; color: #666; font-size: 0.98em;">Edit your story text and image prompt below. Click 'Generate Image' to create an illustration, and 'Save Page' to add it to your book.</div>
+                <textarea id="previewText" placeholder="Your story text will appear here..." style="margin-bottom: 10px;"></textarea>
+                <textarea id="imagePrompt" placeholder="Type image prompt here" style="margin-bottom: 10px;"></textarea>
+                <div id="previewActions" style="display: flex; flex-direction: column; align-items: center; gap: 14px; margin-bottom: 10px;">
+                    <button id="generateImageBtn" class="btn btn-primary">Generate Image</button>
+                    <button id="savePageBtn" class="btn">Save Page</button>
+                </div>
+                <div style="margin-top: 12px; color: #888; font-size: 0.98em; text-align: center; max-width: 400px;">
+                    <strong>Pro tip:</strong> Sometimes the text in the image is wrong or the style isn't quite right. You can specify corrections or style preferences directly in the image prompt (e.g., "make the text say..." or "draw in watercolor style"). Hopefully, new models will be better with text, but for now, this is the main workaround!
+                </div>
+            </div>
+        </div>
+
+        <div id="chatInterface" class="panel" style="flex: 1.5; min-width: 400px;">
+            <h2>Chat with GPT-4.0</h2>
+            <div id="chatMessages" style="height: 350px; overflow-y: auto; background: #f7f7f7; border-radius: 8px; padding: 10px; margin-bottom: 10px;"></div>
+            <form id="chatForm" style="display: flex; gap: 8px;">
+                <textarea id="chatInput" rows="2" placeholder="Type your message..." style="flex: 1; border-radius: 8px; border: 1px solid #ccc; padding: 8px;"></textarea>
+                <button type="submit" class="btn btn-primary">Send</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html> 
