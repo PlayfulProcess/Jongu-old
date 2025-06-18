@@ -18,6 +18,38 @@
             --box-shadow: 0 4px 12px rgba(0,0,0,0.08);
         }
 
+        .prototype-notice {
+            max-width: 700px;
+            margin: 24px auto 0 auto;
+            padding: 1.5rem 2rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: var(--border-radius);
+            color: #fff;
+            box-shadow: var(--box-shadow);
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            /* Two columns for larger screens */
+            column-count: 2;
+            column-gap: 2.5rem;
+        }
+        .prototype-notice ul, .prototype-notice ol {
+            margin-left: 1.5em;
+            padding-left: 1.2em;
+            color: #fff;
+            /* Ensure bullets/numbers are visible */
+            list-style-position: inside;
+        }
+        .prototype-notice li {
+            margin-bottom: 0.5em;
+        }
+        @media (max-width: 700px) {
+            .prototype-notice {
+            column-count: 1;
+            }
+        }
+    
+
+    /* ...rest of existing styles... */
+
         body {
             font-family: 'Inter', sans-serif;
             margin: 0;
@@ -160,11 +192,35 @@
 </head>
 <body>
     <div class="header">
-        <a href="../kids_books.html" class="back-link">&larr; Back to Books</a>
-        <h1>Create Your Story <span style="font-size:0.6em; color:#FFD700; font-weight:600;">(Beta)</span></h1>
-        <p>Talk to the assistant, preview your pages, and build your book!</p>
-        <div style="background:#fff3cd; color:#856404; border:1px solid #ffeeba; border-radius:8px; padding:10px 18px; margin:18px auto 0; max-width:700px; font-size:1.05em;">
-            <strong>Note:</strong> Your book pages are stored only temporarily in your browser. If you refresh or close this page, your work will be lost unless you export your book as a PDF. Cloud saving and cross-device access are not enabled yet.
+        <a href="../../kids_books.html" class="back-link">← Back to Books</a>
+        <div class="header-content">
+            <h1>Create Your Story <span class="prototype-label">PROTOTYPE</span></h1>
+            <p class="subtitle">Talk to the assistant, preview your pages, and build your book!</p>
+            
+            <div class="prototype-notice">
+                <h3>🚧 Development Prototype - Local OpenAI Only</h3>
+                <p><strong>⚠️ This version requires local setup and is not cloud-deployed yet.</strong></p>
+                
+                <p><strong>Requirements:</strong></p>
+                <ul>
+                    <li>Local Python FastAPI server running</li>
+                    <li>Valid OpenAI API key in .env file</li>
+                    <li>Dependencies installed locally</li>
+                </ul>
+
+                <p><strong>📂 GitHub Repository:</strong><br>
+                <a href="https://github.com/PlayfulProcess/Jongu" target="_blank">https://github.com/PlayfulProcess/Jongu</a></p>
+                
+                <p><strong>🚀 Quick Setup Instructions:</strong></p>
+                <ol>
+                    <li>Clone: <code>git clone https://github.com/PlayfulProcess/Jongu.git</code></li>
+                    <li>Navigate: <code>cd Jongu/kids_books/builder/</code></li>
+                    <li>Create .env file with: <code>OPENAI_API_KEY=your-key-here</code></li>
+                    <li>Install: <code>pip install -r requirements.txt</code></li>
+                    <li>Run server: <code>uvicorn main:app --host 127.0.0.1 --port 8000 --reload</code></li>
+                    <li>Open index.html in your browser</li>
+                </ol>
+            </div>
         </div>
     </div>
 
@@ -207,6 +263,7 @@
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="config.js"></script>
     <script src="app.js"></script>
 </body>
 </html> 
